@@ -7,6 +7,31 @@ body {
   -moz-osx-font-smoothing: grayscale;
 
     background-color: #EDF9F0;
+    display: grid;
+
+    grid-template-columns:
+    [col-start] 1fr
+    [col-2] 1fr
+    [col-3] 1fr
+    [col-4] 1fr
+    [col-5] 1fr
+    [col-6] 1fr
+    [col-7] 1fr
+    [col-8] 1fr
+    [col-9] 1fr
+    [col-10] 1fr
+    [col-11] 1fr
+    [col-12] 1fr
+    [col-end];
+
+    grid-template-rows: 
+    1fr
+    1fr
+    1fr
+    1fr
+    1fr
+    1fr 
+    ;
 }
 
 .white-block {
@@ -19,7 +44,8 @@ body {
 }
 
 .photo-block {
-  background-image: url("img/landingimage.jpg");
+  /*background-image: url("img/landingimage.jpg"); */
+  height:200px;
 }
 
 code {
