@@ -2,8 +2,12 @@ import React from 'react'
 
 function App() {
   return (
-    <div>
-      <h1>Hello React</h1>
+    <div className = "white-block">
+      <div className = "green-block">
+        <div className = "photo-block">
+          <h1>Hello React</h1>
+        </div>
+      </div>
     </div>
   );
 }
