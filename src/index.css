@@ -12,7 +12,7 @@ body {
   height: 100vh;
 
   grid-template-columns:
-  [col-start] 3fr
+  [col-start] 2fr
   [col-2] 7fr
   [col-3] 7fr
   [col-4] 7fr
@@ -55,19 +55,35 @@ grid-area:wb;
 height: 100%;
 width: 100%;
 margin:0;
+border-top-left-radius: 4%;
+display: grid;
+grid-template-rows:
+1fr
+24fr;
+
+grid-template-areas:
+". ."
+". gb"
+". gb"
+;
 }
 
 .green-block {
 background-color: #77D18C;
 grid-area:gb;
 margin:0;
+border-top-left-radius: 4%;
+padding-left:4%;
+padding-top:2%;
 }
 
 .photo-block {
 /*background-image: url("img/landingimage.jpg"); */
-height:200px;
+height:100%;
 grid-area:pb;
 margin:0;
+border-top-left-radius: 4%;
+background-color: grey;
 }
 
 
