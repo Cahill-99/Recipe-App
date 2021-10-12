@@ -12,21 +12,24 @@ body {
   height: 100vh;
 
   grid-template-columns:
-  [col-start] 1fr
-  [col-2] 1fr
-  [col-3] 1fr
-  [col-4] 1fr
-  [col-5] 1fr
-  [col-6] 1fr
-  [col-7] 1fr
-  [col-8] 1fr
-  [col-9] 1fr
-  [col-10] 1fr
-  [col-11] 1fr
-  [col-12] 1fr
+  [col-start] 3fr
+  [col-2] 7fr
+  [col-3] 7fr
+  [col-4] 7fr
+  [col-5] 7fr
+  [col-6] 7fr
+  [col-7] 7fr
+  [col-8] 7fr
+  [col-9] 3fr
+  [col-10] 3fr
+  [col-11] 7fr
+  [col-12] 7fr
+  [col-13] 7fr
+  [col-14] 7fr
   [col-end];
 
   grid-template-rows: 
+  1fr
   1fr
   1fr
   1fr
@@ -36,11 +39,13 @@ body {
   ;
 
   grid-template-areas: 
-  "wb wb wb wb wb wb wb wb wb wb wb wb"
-  "wb wb wb wb wb wb wb wb wb wb wb wb"
-  "wb wb wb wb wb wb wb wb wb wb wb wb"
-  "wb wb wb wb wb wb wb wb wb wb wb wb"
-  "wb wb wb wb wb wb wb wb wb wb wb wb"
+  ". . . . . . . . . . . . . ."
+  ". wb wb wb wb wb wb wb wb wb wb wb wb wb"
+  ". wb wb wb wb wb wb wb wb wb wb wb wb wb"
+  ". wb wb wb wb wb wb wb wb wb wb wb wb wb"
+  ". wb wb wb wb wb wb wb wb wb wb wb wb wb"
+  ". wb wb wb wb wb wb wb wb wb wb wb wb wb"
+  ". wb wb wb wb wb wb wb wb wb wb wb wb wb"
   ;
 }
 
