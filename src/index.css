@@ -29,13 +29,13 @@ body {
   [col-end];
 
   grid-template-rows: 
-  1fr
-  1fr
-  1fr
-  1fr
-  1fr
-  1fr
-  1fr 
+  4fr
+  5fr
+  5fr
+  5fr
+  5fr
+  5fr
+  5fr 
   ;
 
   grid-template-areas: 
@@ -57,14 +57,20 @@ width: 100%;
 margin:0;
 border-top-left-radius: 4%;
 display: grid;
+
 grid-template-rows:
 1fr
 24fr;
 
+grid-template-columns:
+[col-start] 1fr
+[col-2] 1fr
+[col-end];
+
 grid-template-areas:
 ". ."
-". gb"
-". gb"
+"textb gb"
+"textb gb"
 ;
 }
 
@@ -78,7 +84,8 @@ padding-top:2%;
 }
 
 .photo-block {
-/*background-image: url("img/landingimage.jpg"); */
+background-image: url("img/landingimage.jpg");
+background-size:cover;
 height:100%;
 grid-area:pb;
 margin:0;
@@ -86,6 +93,29 @@ border-top-left-radius: 4%;
 background-color: grey;
 }
 
+.text-block {
+  grid-area:textb;
+  max-width:100%;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  flex-direction:column;
+
+}
+h2 {
+  font:45px Montserrat, sans-serif;
+  font-weight:550;
+  max-width:450px;
+  margin:0;
+  margin-bottom:30px;
+}
+
+.landing-text {
+  font: 25px Montserrat, sans-serif;
+  line-height:40px;
+  max-width:450px;
+  margin:0;
+}
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
