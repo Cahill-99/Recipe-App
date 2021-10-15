@@ -81,12 +81,14 @@ margin:0;
 border-top-left-radius: 4%;
 padding-left:4%;
 padding-top:2%;
+min-width:80%;
 }
 
 .photo-block {
 background-image: url("img/landingimage.jpg");
 background-size:cover;
 height:100%;
+min-width:80%;
 grid-area:pb;
 margin:0;
 border-top-left-radius: 4%;
@@ -95,28 +97,42 @@ background-color: grey;
 
 .text-block {
   grid-area:textb;
-  max-width:100%;
+  max-width:80%;
   display:flex;
   justify-content:center;
-  align-items:center;
+  align-items:flex-start;
   flex-direction:column;
+  margin-left:15%;
 
 }
 h2 {
-  font:45px Montserrat, sans-serif;
+  font:42px Montserrat, sans-serif;
   font-weight:550;
   max-width:450px;
   margin:0;
-  margin-bottom:30px;
+  margin-bottom:8%;
   color:#255530
 }
 
 .landing-text {
-  font: 25px Montserrat, sans-serif;
+  font: 23px Montserrat, sans-serif;
   line-height:40px;
   max-width:450px;
   margin:0;
   color:#255530
+}
+
+.startbtn {
+  color:#FFF4DA;
+  background-color:#EF990A;
+  border:none;
+  width:55%;
+  height:9%;
+  font:18px Montserrat, sans-serif;
+  font-weight:550;
+  margin-top:8%;
+  border-radius: 12px;
+  box-shadow: 0px 0px 14px 0px #dddddd;
 }
 
 code {
