@@ -10,7 +10,11 @@ body {
   background-color: #EDF9F0;
   display: grid;
   height: 100vh;
+}
 
+.wrapper{
+  display: grid;
+  height:100vh;
   grid-template-columns:
   [col-start] 2fr
   [col-2] 7fr
@@ -39,7 +43,7 @@ body {
   ;
 
   grid-template-areas: 
-  ". . . . . . . . . . . . . ."
+  ". logo logo . . . . . . . . . . ."
   ". wb wb wb wb wb wb wb wb wb wb wb wb wb"
   ". wb wb wb wb wb wb wb wb wb wb wb wb wb"
   ". wb wb wb wb wb wb wb wb wb wb wb wb wb"
@@ -111,6 +115,13 @@ h2 {
   max-width:450px;
   margin:0;
   margin-bottom:8%;
+  color:#255530
+}
+
+h3 {
+  font:35px Montserrat, sans-serif;
+  grid-area:logo;
+  font-weight:550;
   color:#255530
 }
 
