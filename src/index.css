@@ -44,6 +44,49 @@ body {
 
   grid-template-areas: 
   ". logo logo . . . . . . . . . . ."
+  "bw bw bw bw bw bw bw bw bw bw bw bw bw bw"
+  "bw bw bw bw bw bw bw bw bw bw bw bw bw bw"
+  "bw bw bw bw bw bw bw bw bw bw bw bw bw bw"
+  "bw bw bw bw bw bw bw bw bw bw bw bw bw bw"
+  "bw bw bw bw bw bw bw bw bw bw bw bw bw bw"
+  "bw bw bw bw bw bw bw bw bw bw bw bw bw bw"
+  ;
+}
+
+.base-wrapper {
+  display: grid;
+  grid-area:bw;
+  height: 100 vh;
+
+  grid-template-columns:
+  [col-start] 2fr
+  [col-2] 7fr
+  [col-3] 7fr
+  [col-4] 7fr
+  [col-5] 7fr
+  [col-6] 7fr
+  [col-7] 7fr
+  [col-8] 7fr
+  [col-9] 3fr
+  [col-10] 3fr
+  [col-11] 7fr
+  [col-12] 7fr
+  [col-13] 7fr
+  [col-14] 7fr
+  [col-end];
+
+  grid-template-rows: 
+  4fr
+  5fr
+  5fr
+  5fr
+  5fr
+  5fr
+  5fr 
+  ;
+
+  grid-template-areas: 
+  ". wb wb wb wb wb wb wb wb wb wb wb wb wb"
   ". wb wb wb wb wb wb wb wb wb wb wb wb wb"
   ". wb wb wb wb wb wb wb wb wb wb wb wb wb"
   ". wb wb wb wb wb wb wb wb wb wb wb wb wb"
@@ -51,8 +94,8 @@ body {
   ". wb wb wb wb wb wb wb wb wb wb wb wb wb"
   ". wb wb wb wb wb wb wb wb wb wb wb wb wb"
   ;
-}
 
+}
 .white-block {
 background-color: white;
 grid-area:wb;
@@ -78,7 +121,7 @@ grid-template-areas:
 ;
 }
 
-.green-block {
+.green-block-landing {
 background-color: #77D18C;
 grid-area:gb;
 margin:0;
@@ -125,7 +168,7 @@ h3 {
   color:#255530
 }
 
-.landing-text {
+.landing-text { 
   font: 25px Montserrat, sans-serif;
   line-height:40px;
   max-width:450px;
