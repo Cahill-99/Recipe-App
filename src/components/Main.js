@@ -1,17 +1,13 @@
 import React from 'react';
+import Greenblk from "./Greenblk";
+import Blueblk from "./Blueblk";
 
 function Main() {
     return (
 
     <div className = "base-wrapper-main">
-        <div className = "green-block-main">
-
-        </div>
-        <div className = "blue-block-main">
-            <div className = "white-block-main">
-
-            </div>
-        </div>
+        <Greenblk />
+        <Blueblk />
     </div>
     );
 }

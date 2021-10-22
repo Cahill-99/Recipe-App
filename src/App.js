@@ -1,14 +1,19 @@
 import React from 'react';
 import Landing from "./components/Landing";
-import Main from "./components/Main";
+import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
+import Main from './components/Main';
 
 function App() {
   return (
+    <Router>
     <div className = "wrapper">
       <h3>Logo Name</h3>
-      {/*<Landing />*/}
-      <Main />
+      <Switch>
+        <Route path="/" exact component={Landing}/>
+        <Route path="/main" exact component={Main}/>
+      </Switch>
     </div>
+    </Router>
   );
 }
 
