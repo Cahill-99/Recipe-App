@@ -341,6 +341,12 @@ a {
   grid-area:wbm;
   background-color:white;
   border-top-left-radius: 20px;
+  display:flex;
+}
+
+.placeholder-plate{
+  margin:auto;
+  height:40vh;
 }
 
 code {
