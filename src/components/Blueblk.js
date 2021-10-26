@@ -1,14 +1,16 @@
 import React from 'react';
 
 
-function Blueblk() {
-    return (
+class Blueblk extends React.Component {
+    render() {
+        return (
 
-        <div className = "blue-block-main">
-            <div className = "white-block-main">
+            <div className = "blue-block-main">
+                <div className = "white-block-main">
+                </div>
             </div>
-        </div>
-    );
+        );
+    }
 }
 
 export default Blueblk;

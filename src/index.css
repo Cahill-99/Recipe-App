@@ -169,6 +169,15 @@ h3 {
   color:#255530
 }
 
+h4 {
+  font:32px Montserrat, sans-serif;
+  font-weight:500;
+  color:#FFF4DA;
+  border-bottom: 3px solid #FFF4DA;
+  min-width:78%;
+  margin-top:8%;
+}
+
 .landing-text { 
   font: 25px Montserrat, sans-serif;
   line-height:40px;
@@ -181,6 +190,19 @@ h3 {
   color:#FFF4DA;
   background-color:#EF990A;
   border:none;
+  width:100%;
+  height:100%;
+  font:18px Montserrat, sans-serif;
+  font-weight:550;
+  margin:auto;
+  border-radius: 12px;
+  cursor:pointer;
+}
+
+a {
+  color:#FFF4DA;
+  background-color:#EF990A;
+  border:none;
   width:55%;
   height:9%;
   font:18px Montserrat, sans-serif;
@@ -188,9 +210,8 @@ h3 {
   margin-top:8%;
   border-radius: 12px;
   box-shadow: 0px 0px 14px 0px #dddddd;
+
 }
-
-
 
 
 .base-wrapper-main {
@@ -242,6 +263,9 @@ h3 {
   grid-area:gbm;
   background-color: #77D18C;
   border-top-right-radius: 20px;
+  display:flex;
+  flex-direction: column;
+  align-items:center;
 }
 
 .blue-block-main {
@@ -262,13 +286,13 @@ h3 {
   [col-end];
 
   grid-template-rows: 
-  3fr
-  5fr
-  5fr
-  5fr
-  5fr
-  5fr
-  5fr 
+  7fr
+  12fr
+  10fr
+  10fr
+  10fr
+  10fr
+  10fr 
   ;
 
   grid-template-areas: 
