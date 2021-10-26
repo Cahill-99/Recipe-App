@@ -10,8 +10,11 @@ class Greenblk extends React.Component {
                 <form className = "search-form">
                     <input className = "search-bar">
                     </input>
-                    <img className = "green-arrow"  src = "public/Union 2.png" ></img>
                 </form>
+                <div className = "green-info-wrapper">
+                    <img className = "green-arrow"  src = "Images/greenarrow.png" alt = "up arrow"></img>
+                    <p className = "green-instructions">Add an ingredient to begin your search</p>
+                </div>
             </div>
 
         );

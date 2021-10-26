@@ -176,6 +176,7 @@ h4 {
   border-bottom: 3px solid #FFF4DA;
   min-width:78%;
   margin-top:8%;
+  margin-bottom:7%;
 }
 
 .landing-text { 
@@ -268,6 +269,34 @@ a {
   align-items:center;
 }
 
+.search-bar{
+  border:none;
+  width:18.5vw;
+  height:5vh;
+  border-radius: 10px;
+  margin:auto;
+}
+
+.green-info-wrapper{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  margin-top:20px;
+}
+
+.green-arrow{
+  height:40px;
+  width:35px;
+}
+
+.green-instructions{
+  font:20px Montserrat, sans-serif;
+  font-weight:400;
+  color:#FFF4DA;
+  max-width:220px;
+  margin-top:5%;
+}
+
 .blue-block-main {
   grid-area:bbm;
   background-color: #C9F5D4;
@@ -287,7 +316,7 @@ a {
 
   grid-template-rows: 
   7fr
-  12fr
+  10fr
   10fr
   10fr
   10fr
