@@ -410,6 +410,21 @@ a {
   justify-content:space-evenly;
 }
 
+.meat-btn{
+  height:15px;
+  width:15px;
+  background-color:transparent;
+  border:#FFF4DA solid 2px;
+  border-radius:5px;
+}
+
+.plant-btn{
+  height:15px;
+  width:15px;
+  background-color:transparent;
+  border:#FFF4DA solid 2px;
+  border-radius:5px;
+}
 .filter-text{
   font:20px Montserrat, sans-serif;
   color:#FFF4DA;
