@@ -325,7 +325,7 @@ a {
   ;
 
   grid-template-areas: 
-  ". . . . . . . . ."
+  ". fbtn fbtn fbtn . . . . ."
   ". wbm wbm wbm wbm wbm wbm wbm wbm"
   ". wbm wbm wbm wbm wbm wbm wbm wbm"
   ". wbm wbm wbm wbm wbm wbm wbm wbm"
@@ -347,6 +347,81 @@ a {
 .placeholder-plate{
   margin:auto;
   height:40vh;
+}
+
+.filter-wrapper{
+  display:flex;
+  height: 100%;
+  grid-area: fbtn;
+  align-items:center;
+}
+
+.time-wrapper{
+  display:flex;
+  height:50%;
+}
+.time-light{
+  background-color:#EF990A;
+  width:12vw;
+  border-top-left-radius:50px;
+  border-bottom-left-radius:50px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.time-dark{
+  background-color:#DC8D09;
+  min-width:2.5vw;
+  border-top-right-radius:50px;
+  border-bottom-right-radius:50px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.filter-arrow{
+  height:10px;
+}
+
+.diet-wrapper{
+  display:flex;
+  height:50%;
+}
+
+.diet-light{
+  background-color:#EF990A;
+  margin-left:20px;
+  width:8vw;
+  border-top-left-radius:50px;
+  border-bottom-left-radius:50px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.diet-dark{
+  background-color:#DC8D09;
+  display:flex;
+  min-width: 20vw;
+  border-top-right-radius:50px;
+  border-bottom-right-radius:50px;
+  align-items:center;
+  justify-content:space-evenly;
+}
+
+.filter-text{
+  font:20px Montserrat, sans-serif;
+  color:#FFF4DA;
+
+}
+
+.filter-subtext{
+  margin:0;
+  font:15px Montserrat, sans-serif;
+  color:#FFF4DA;
+  margin-top:auto;
+  margin-bottom:auto;
 }
 
 code {
