@@ -13,6 +13,14 @@ class Main extends React.Component {
         </div>
         );
     }
+
+
 }
+const api = () => {
+
+    
+    const APP_ID = "efb4537f";
+    const APP_KEY = "3957081447cbddc95fd0ae1dda9e5529"
+    }
 
 export default Main;
