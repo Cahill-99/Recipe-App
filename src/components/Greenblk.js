@@ -3,8 +3,7 @@ import React from 'react';
 
 class Greenblk extends React.Component {
     render() {
-        const APP_ID = "efb4537f";
-        const APP_KEY = "3957081447cbddc95fd0ae1dda9e5529"
+
         return (
 
             <div className = "green-block-main">
