@@ -16,12 +16,6 @@ class Main extends React.Component {
 
 
 }
-const api = () => {
 
-    
-    const APP_ID = "efb4537f";
-    const APP_KEY = "3957081447cbddc95fd0ae1dda9e5529"
-    let baseURL = `https://api.edamam.com/api/recipes/v2`
-    }
 
 export default Main;
