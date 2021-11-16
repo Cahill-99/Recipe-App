@@ -8,6 +8,7 @@ class Greenblk extends React.Component {
         this.state = {search: ""};
 
         this.updateSearch = this.updateSearch.bind(this);
+
     }
 
 
@@ -15,15 +16,34 @@ class Greenblk extends React.Component {
         //this.fetchRecipes()
     };
 
+    checkTyping() {
+        let timer;
 
-    typingTimer(){
+        clearTimeout(timer);
+
+        timer = setTimeout(() => {
+            console.log("Wassup")
+        }, 1500);
         
+        let testFunc = () => {
+            console.log(this.state)
+            console.log(timer);
+        };
+
+        setTimeout(testFunc, 1500)
+
+
     }
 
 
     updateSearch(event) {
         const input = event.currentTarget.value
         this.setState({search:input});
+
+
+
+
+        this.checkTyping();
     }
 
 
@@ -44,7 +64,7 @@ class Greenblk extends React.Component {
         return (
 
             <div className = "green-block-main">
-                <h4 onClick ={console.log(this.state)} >Ingredients</h4>
+                <h4>Ingredients</h4>
                 <form className = "search-form">
                     <input className = "search-bar" type="text" onChange= {this.updateSearch}>
                     </input>
