@@ -6,6 +6,8 @@ class Greenblk extends React.Component {
     constructor(props) {
         super(props);
         this.state = {search: ""};
+
+        this.updateSearch = this.updateSearch.bind(this);
     }
 
 
@@ -13,8 +15,15 @@ class Greenblk extends React.Component {
         //this.fetchRecipes()
     };
 
-    updateSearch(e) {
 
+    typingTimer(){
+        
+    }
+
+
+    updateSearch(event) {
+        const input = event.currentTarget.value
+        this.setState({search:input});
     }
 
 
@@ -37,7 +46,7 @@ class Greenblk extends React.Component {
             <div className = "green-block-main">
                 <h4 onClick ={console.log(this.state)} >Ingredients</h4>
                 <form className = "search-form">
-                    <input className = "search-bar" type="text" onChange= {e => this.setState({search: e.currentTarget.value})}>
+                    <input className = "search-bar" type="text" onChange= {this.updateSearch}>
                     </input>
                 </form>
                 <div className = "green-info-wrapper">
