@@ -5,46 +5,51 @@ class Greenblk extends React.Component {
 
     constructor(props) {
         super(props);
-        this.state = {search: ""};
-
-        this.updateSearch = this.updateSearch.bind(this);
+        this.state = {
+            search:''
+          
+};
+    this.handleChange = this.handleChange.bind(this)
+      //  this.updateSearch = this.updateSearch.bind(this);
+      //  this.checkTyping = this.checkTyping.bind(this);
 
     }
 
 
-    componentDidMount() {
-        //this.fetchRecipes()
-    };
+    handleChange(evt) {
+        if(this._timeout){ //if there is already a timeout in process cancel it
+            clearTimeout(this._timeout);
+        }
+        const val = evt.target.value;
+        this._timeout = setTimeout(()=>{
+           this._timeout = null;
+           this.setState({
+              search:val
+           });         console.log(this.state)
+        },1000);
 
-    checkTyping() {
-        let timer;
+      }
 
-        clearTimeout(timer);
 
-        timer = setTimeout(() => {
-            console.log("Wassup")
-        }, 1500);
+    //checkTyping() {
+    //    let timer;
+
+     //   clearTimeout(timer);
+
+      //  timer = setTimeout(() => {
+     //       this.updateSearch()
+      //  }, 3000);
         
-        let testFunc = () => {
-            console.log(this.state)
-            console.log(timer);
-        };
 
-        setTimeout(testFunc, 1500)
+    //}
 
 
-    }
+  //  updateSearch(event) {
+  //      const input = event.currentTarget.value
+  //      this.setState({search:input});
+  //      console.log("test");
 
-
-    updateSearch(event) {
-        const input = event.currentTarget.value
-        this.setState({search:input});
-
-
-
-
-        this.checkTyping();
-    }
+     // }
 
 
     //fetchRecipes = () => {
@@ -66,7 +71,7 @@ class Greenblk extends React.Component {
             <div className = "green-block-main">
                 <h4>Ingredients</h4>
                 <form className = "search-form">
-                    <input className = "search-bar" type="text" onChange= {this.updateSearch}>
+                    <input className = "search-bar" type="text" onChange= {this.handleChange}>
                     </input>
                 </form>
                 <div className = "green-info-wrapper">
