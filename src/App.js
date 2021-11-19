@@ -8,7 +8,7 @@ function App() {
     return (
       <Router>
       <div className = "wrapper">
-        <h3>Logo Name</h3>
+        <img className = "logo" src = "Images/Smart-chef-logo.png" alt = "Smart Chef Logo"></img>
         <Switch>
           <Route path="/" exact component={Landing}/>
           <Route path="/main" exact component={Main}/>

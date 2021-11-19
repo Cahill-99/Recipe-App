@@ -162,12 +162,13 @@ h2 {
   color:#255530
 }
 
-h3 {
-  font:35px Montserrat, sans-serif;
+.logo {
   grid-area:logo;
-  font-weight:550;
-  color:#255530
+  height:55px;
+  margin:auto;
 }
+
+
 
 h4 {
   font:32px Montserrat, sans-serif;

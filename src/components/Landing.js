@@ -7,7 +7,7 @@ function Landing() {
     <div className = "base-wrapper">
         <div className = "white-block">
             <div className = "text-block">
-                <h2>Something about the site</h2>
+                <h2>Finding meals made easy</h2>
                 <p className = "landing-text"> 
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna</p>
                 <Link to= '/main'>
