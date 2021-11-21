@@ -24,11 +24,12 @@ class Greenblk extends React.Component {
         }
         const val = evt.target.value;
         this._timeout = setTimeout(()=>{
-           this._timeout = null;
+           //this._timeout = null;
            this.setState({
               search:val
            });
-           this.fetchRecipes(this.state.search);
+           console.log(this.state.search);
+           this.fetchRecipes(val);
         },1000);
 
       }
@@ -42,7 +43,7 @@ class Greenblk extends React.Component {
         //let query = this.state;
         console.log(this.state.search);
         
-        fetch(`https://api.edamam.com/search?q=${this.state.search}&app_id=${APP_ID}&app_key=${APP_KEY}`)
+        fetch(`https://api.edamam.com/search?q=${search}&app_id=${APP_ID}&app_key=${APP_KEY}`)
         .then((response) => response.json())
         .then(recipesList => {
             this.setState({ recipes: recipesList})
