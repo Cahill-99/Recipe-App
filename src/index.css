@@ -278,6 +278,13 @@ a {
   margin:auto;
 }
 
+.auto-complete-dropdown{
+  width:18.5vw;
+  height:28vh;
+  background-color:white;
+
+}
+
 .green-info-wrapper{
   display:flex;
   flex-direction:column;
