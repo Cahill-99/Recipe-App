@@ -8,7 +8,7 @@ class Greenblk extends React.Component {
         this.state = {
             search:'',
             recipes:'',
-            suggestions:[]
+            suggestions:[],
           
 };
     this.handleChange = this.handleChange.bind(this);
@@ -31,7 +31,7 @@ class Greenblk extends React.Component {
            });
            console.log(this.state.search);
            this.autoComplete(val);
-        },1000);
+        },500);
 
       }
 
@@ -51,19 +51,26 @@ class Greenblk extends React.Component {
         })
     };
 
-    //fetchRecipes = (search) => {
-      //  const APP_ID = "efb4537f";
-      //  const APP_KEY = "3957081447cbddc95fd0ae1dda9e5529";
-        //let query = this.state;
-      //  console.log(this.state.search);
+    selectIngredient = (input) => {
+        console.log(input);
+    }
+
+    handleClick = (selected) => {
+        console.log(selected)
+    }
+
+    fetchRecipes = (search) => {
+        const APP_ID = "efb4537f";
+        const APP_KEY = "3957081447cbddc95fd0ae1dda9e5529";
+        console.log(this.state.search);
         
-      //  fetch(`https://api.edamam.com/search?q=${search}&app_id=${APP_ID}&app_key=${APP_KEY}`)
-       // .then((response) => response.json())
-       // .then(recipesList => {
-        //    this.setState({ recipes: recipesList})
-       //     console.log(recipesList)
-      //  })
-   // };
+        fetch(`https://api.edamam.com/search?q=${search}&app_id=${APP_ID}&app_key=${APP_KEY}`)
+        .then((response) => response.json())
+        .then(recipesList => {
+            this.setState({ recipes: recipesList})
+            console.log(recipesList)
+        })
+    };
 
     render() {
 
@@ -76,15 +83,22 @@ class Greenblk extends React.Component {
                     </input>
                 </form>
                 <div className = "green-info-wrapper">
+                    {this.state.suggestions.length === 0 && (
+                    <div className = "green-instructions-wrapper">
                     <img className = "green-arrow"  src = "Images/greenarrow.png" alt = "up arrow"></img>
                     <p className = "green-instructions">Add an ingredient to begin your search</p>
+
+                    </div>
+                    )}
+                    {this.state.suggestions.length !== 0 && (
                     <div className = "auto-complete-dropdown">
                         {this.state.suggestions.map(hit =>{
                             return (
-                                <p key = {hit.name}>{hit.name}</p>
+                                <p key = {hit.name} onClick = {()=> {this.handleClick(hit.name)}}>{hit.name}</p>
                             )
                         })}
                     </div>
+                    )}
                 </div>
             </div>
 
