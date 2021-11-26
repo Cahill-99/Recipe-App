@@ -282,7 +282,13 @@ a {
   width:18.5vw;
   height:28vh;
   background-color:white;
+  border-radius: 10px;
 
+}
+
+.suggestions{
+  margin-left:5px;
+  cursor:pointer;
 }
 
 .green-info-wrapper{

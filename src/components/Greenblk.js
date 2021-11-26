@@ -6,15 +6,15 @@ class Greenblk extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            search:'',
+            search:' ',
             recipes:'',
             suggestions:[],
+            list:[]
           
 };
     this.handleChange = this.handleChange.bind(this);
     //this.fetchRecipes = this.fetchRecipes.bind(this);
-      //  this.updateSearch = this.updateSearch.bind(this);
-      //  this.checkTyping = this.checkTyping.bind(this);
+
 
     }
 
@@ -26,10 +26,10 @@ class Greenblk extends React.Component {
         const val = evt.target.value;
         this._timeout = setTimeout(()=>{
            //this._timeout = null;
-           this.setState({
-              search:val
-           });
-           console.log(this.state.search);
+           //this.setState({
+           //   search:val
+          // });
+          // console.log(this.state.search);
            this.autoComplete(val);
         },500);
 
@@ -39,15 +39,11 @@ class Greenblk extends React.Component {
 
       autoComplete = (search) => {
         const API_KEY = "82138415fc524a1d950b2bc22191c8cc";
-        //let query = this.state;
-        //console.log(this.state.search);
         
         fetch(`https://api.spoonacular.com/food/ingredients/autocomplete?query=${search}&number=5&apiKey=${API_KEY}`)
         .then((response) => response.json())
         .then(autoComplete => {
             this.setState({ suggestions: autoComplete})
-            console.log(autoComplete)
-            console.log(this.state.suggestions)
         })
     };
 
@@ -56,8 +52,14 @@ class Greenblk extends React.Component {
     }
 
     handleClick = (selected) => {
-        console.log(selected)
+        //console.log(selected)
+        this.setState({search: this.state.search.concat(" ",selected)}) // adds selected suggestion to search string DOESNT WORK RIGHT
+        console.log(this.state.search)
+        this.state.list.push(selected) //Adds clicked item to ingredients list
+        this.setState({suggestions: ""}); // removes suggestion dropdown on click
+        console.log(this.state.list)
     }
+    
 
     fetchRecipes = (search) => {
         const APP_ID = "efb4537f";
@@ -83,7 +85,7 @@ class Greenblk extends React.Component {
                     </input>
                 </form>
                 <div className = "green-info-wrapper">
-                    {this.state.suggestions.length === 0 && (
+                    {this.state.suggestions.length === 0 && this.state.list.length === 0 &&(
                     <div className = "green-instructions-wrapper">
                     <img className = "green-arrow"  src = "Images/greenarrow.png" alt = "up arrow"></img>
                     <p className = "green-instructions">Add an ingredient to begin your search</p>
@@ -94,7 +96,7 @@ class Greenblk extends React.Component {
                     <div className = "auto-complete-dropdown">
                         {this.state.suggestions.map(hit =>{
                             return (
-                                <p key = {hit.name} onClick = {()=> {this.handleClick(hit.name)}}>{hit.name}</p>
+                                <p className = "suggestions" key = {hit.name} onClick = {()=> {this.handleClick(hit.name)}}>{hit.name}</p>
                             )
                         })}
                     </div>
