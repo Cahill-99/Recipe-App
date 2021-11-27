@@ -39,32 +39,35 @@ class Greenblk extends React.Component {
 
       autoComplete = (search) => {
         const API_KEY = "82138415fc524a1d950b2bc22191c8cc";
-        
+        console.log(`search ${search}`);
         fetch(`https://api.spoonacular.com/food/ingredients/autocomplete?query=${search}&number=5&apiKey=${API_KEY}`)
         .then((response) => response.json())
         .then(autoComplete => {
             this.setState({ suggestions: autoComplete})
         })
+        console.log(this.state.suggestions);
     };
 
-    selectIngredient = (input) => {
-        console.log(input);
-    }
+
 
     handleClick = (selected) => {
+        let searchString = this.state.search + " " + selected;
         //console.log(selected)
-        this.setState({search: this.state.search.concat(" ",selected)}) // adds selected suggestion to search string DOESNT WORK RIGHT
-        console.log(this.state.search)
-        this.state.list.push(selected) //Adds clicked item to ingredients list
-        this.setState({suggestions: ""}); // removes suggestion dropdown on click
+        this.setState({
+        search: searchString,
+        suggestions: "",
+        list: this.state.list.concat([selected])}) // adds selected suggestion to search string DOESNT WORK RIGHT
+
+        console.log(searchString)
         console.log(this.state.list)
+
+        this.fetchRecipes(searchString)
     }
     
 
     fetchRecipes = (search) => {
         const APP_ID = "efb4537f";
         const APP_KEY = "3957081447cbddc95fd0ae1dda9e5529";
-        console.log(this.state.search);
         
         fetch(`https://api.edamam.com/search?q=${search}&app_id=${APP_ID}&app_key=${APP_KEY}`)
         .then((response) => response.json())
