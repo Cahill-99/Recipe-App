@@ -6,7 +6,7 @@ class Greenblk extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            search:' ',
+            search:'',
             recipes:'',
             suggestions:[],
             list:[]
@@ -26,10 +26,7 @@ class Greenblk extends React.Component {
         const val = evt.target.value;
         this._timeout = setTimeout(()=>{
            //this._timeout = null;
-           //this.setState({
-           //   search:val
-          // });
-          // console.log(this.state.search);
+
            this.autoComplete(val);
         },500);
 
@@ -81,10 +78,22 @@ class Greenblk extends React.Component {
     };
 
     deleteIngredient = (ingredient) => {
+
+        //remove clicked ingredient from list
         const list = [...this.state.list];
         const updatedList = list.filter(item => item !== ingredient);
 
         this.setState({list: updatedList});
+
+        //remove clicked ingredient from search state
+        const ingredientPiece = " " + ingredient;
+        const prevSearchString = this.state.search;
+        const newSearchString = prevSearchString.replace(ingredientPiece,"")
+
+        this.setState({ search: newSearchString});
+        this.fetchRecipes(newSearchString);
+
+        console.log(newSearchString);
     }
 
     render() {
@@ -118,7 +127,7 @@ class Greenblk extends React.Component {
                         <div className = "ing-list">
                             {this.state.list.map(ing => {
                                 return (
-                                        <li key = {ing}>{ing}
+                                        <li className = "ingredient" key = {ing}>{ing}
                                         <button key = {ing} onClick = {() => this.deleteIngredient(ing)}>X</button>
                                         </li>
                                 )
