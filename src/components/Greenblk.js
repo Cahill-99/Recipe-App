@@ -80,6 +80,13 @@ class Greenblk extends React.Component {
         })
     };
 
+    deleteIngredient = (ingredient) => {
+        const list = [...this.state.list];
+        const updatedList = list.filter(item => item !== ingredient);
+
+        this.setState({list: updatedList});
+    }
+
     render() {
 
         return (
@@ -111,7 +118,9 @@ class Greenblk extends React.Component {
                         <div className = "ing-list">
                             {this.state.list.map(ing => {
                                 return (
-                                    <p key = {ing}>{ing}</p>
+                                        <li key = {ing}>{ing}
+                                        <button key = {ing} onClick = {() => this.deleteIngredient(ing)}>X</button>
+                                        </li>
                                 )
                             })}
                         </div>
