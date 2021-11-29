@@ -62,6 +62,7 @@ class Greenblk extends React.Component {
 
         console.log(searchString)
         console.log(ingredientsList)
+        console.log(ingredientsList.length)
 
         this.fetchRecipes(searchString)
     }
@@ -105,6 +106,15 @@ class Greenblk extends React.Component {
                             )
                         })}
                     </div>
+                    )}
+                    {this.state.list.length !== 0 &&(
+                        <div className = "ing-list">
+                            {this.state.list.map(ing => {
+                                return (
+                                    <p key = {ing}>{ing}</p>
+                                )
+                            })}
+                        </div>
                     )}
                 </div>
             </div>
