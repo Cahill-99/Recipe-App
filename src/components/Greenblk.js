@@ -52,14 +52,16 @@ class Greenblk extends React.Component {
 
     handleClick = (selected) => {
         let searchString = this.state.search + " " + selected;
+        let ingredientsList = this.state.list.concat([selected]);
         //console.log(selected)
         this.setState({
         search: searchString,
         suggestions: "",
-        list: this.state.list.concat([selected])}) // adds selected suggestion to search string DOESNT WORK RIGHT
+        list: ingredientsList})
+        //list: this.state.list.concat([selected])}) // adds selected suggestion to search string
 
         console.log(searchString)
-        console.log(this.state.list)
+        console.log(ingredientsList)
 
         this.fetchRecipes(searchString)
     }
