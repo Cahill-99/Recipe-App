@@ -127,9 +127,10 @@ class Greenblk extends React.Component {
                         <div className = "ing-list">
                             {this.state.list.map(ing => {
                                 return (
-                                        <li className = "ingredient" key = {ing}>{ing}
-                                        <button key = {ing} onClick = {() => this.deleteIngredient(ing)}>X</button>
-                                        </li>
+                                    <div key = {ing} className = "ing-wrapper">
+                                        <li className = "ingredient">{ing}</li>
+                                        <button onClick = {() => this.deleteIngredient(ing)}  className = "ing-x-button">X</button>
+                                    </div>
                                 )
                             })}
                         </div>

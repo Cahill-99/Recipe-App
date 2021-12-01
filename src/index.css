@@ -307,10 +307,36 @@ a {
 
 .ing-list{
   z-index:0;
+  margin-top:20px;
+}
+
+.ing-wrapper{
+  display: flex;
+  min-width:18.5vw;
+  justify-content: space-between;
+  margin-bottom:12px;
 }
 
 .ingredient{
   min-width:80%;
+  font:18px Montserrat, sans-serif;
+  color:#FFF4DA;
+  list-style-type: none;
+  font-weight: 500;
+}
+
+.ing-x-button{
+  border:none;
+  background-color: transparent;
+  color:#FFF4DA;
+  font:18px Montserrat, sans-serif;
+  font-weight: 600;
+  cursor:pointer;
+  border-radius:3px;
+}
+
+.ing-x-button:hover{
+  background-color: #76ca89;
 }
 
 .green-arrow{
