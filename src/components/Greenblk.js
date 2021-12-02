@@ -96,46 +96,57 @@ class Greenblk extends React.Component {
         console.log(newSearchString);
     }
 
+    resetList = () => {
+        this.setState({list: []})
+        console.log("list reset")
+    }
+
     render() {
 
         return (
 
             <div className = "green-block-main">
-                <h4>Ingredients</h4>
-                <form className = "search-form">
-                    <input className = "search-bar" type="text" onChange= {this.handleChange}>
-                    </input>
-                </form>
-                <div className = "green-info-wrapper">
-                    {this.state.suggestions.length === 0 && this.state.list.length === 0 &&(
-                    <div className = "green-instructions-wrapper">
-                    <img className = "green-arrow"  src = "Images/greenarrow.png" alt = "up arrow"></img>
-                    <p className = "green-instructions">Add an ingredient to begin your search</p>
+                <div className = "green-upper-wrapper">
+                    <h4>Ingredients</h4>
+                    <form className = "search-form">
+                        <input className = "search-bar" type="text" onChange= {this.handleChange}>
+                        </input>
+                    </form>
+                    <div className = "green-info-wrapper">
+                        {this.state.suggestions.length === 0 && this.state.list.length === 0 &&(
+                        <div className = "green-instructions-wrapper">
+                        <img className = "green-arrow"  src = "Images/greenarrow.png" alt = "up arrow"></img>
+                        <p className = "green-instructions">Add an ingredient to begin your search</p>
 
-                    </div>
-                    )}
-                    {this.state.suggestions.length !== 0 && (
-                    <div className = "auto-complete-dropdown">
-                        {this.state.suggestions.map(hit =>{
-                            return (
-                                <p className = "suggestions" key = {hit.name} onClick = {()=> {this.handleClick(hit.name)}}>{hit.name}</p>
-                            )
-                        })}
-                    </div>
-                    )}
-                    {this.state.list.length !== 0 &&(
-                        <div className = "ing-list">
-                            {this.state.list.map(ing => {
+                        </div>
+                        )}
+                        {this.state.suggestions.length !== 0 && (
+                        <div className = "auto-complete-dropdown">
+                            {this.state.suggestions.map(hit =>{
                                 return (
-                                    <div key = {ing} className = "ing-wrapper">
-                                        <li className = "ingredient">{ing}</li>
-                                        <button onClick = {() => this.deleteIngredient(ing)}  className = "ing-x-button">X</button>
-                                    </div>
+                                    <p className = "suggestions" key = {hit.name} onClick = {()=> {this.handleClick(hit.name)}}>{hit.name}</p>
                                 )
                             })}
                         </div>
-                    )}
+                        )}
+                        {this.state.list.length !== 0 &&(
+                            <div className="ing-list">
+                                {this.state.list.map(ing => {
+                                    return (
+                                        <div key={ing} className="ing-wrapper">
+                                            <li className="ingredient">{ing}</li>
+                                            <button onClick={() => this.deleteIngredient(ing)} className="ing-x-button">X</button>
+                                        </div>
+                                    );
+                                })}
+                            </div>
+                        )}
+                    </div>
                 </div>
+                {this.state.list.length !== 0 &&(
+                    <button className = "reset-button" onClick={() => this.resetList()}>Reset</button>
+                )}
+
             </div>
 
         );
