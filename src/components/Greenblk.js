@@ -11,7 +11,7 @@ class Greenblk extends React.Component {
             suggestions:[],
             list:[]
           
-};
+        };
     this.handleChange = this.handleChange.bind(this);
     //this.fetchRecipes = this.fetchRecipes.bind(this);
 

@@ -509,20 +509,23 @@ a {
   justify-content:space-evenly;
 }
 
-.meat-btn{
+.gluten-btn{
   height:15px;
   width:15px;
   background-color:transparent;
   border:#FFF4DA solid 2px;
   border-radius:5px;
+  cursor:pointer;
 }
 
-.plant-btn{
+.veg-btn{
   height:15px;
   width:15px;
   background-color:transparent;
   border:#FFF4DA solid 2px;
   border-radius:5px;
+  cursor:pointer;
+
 }
 .filter-text{
   font:20px Montserrat, sans-serif;
