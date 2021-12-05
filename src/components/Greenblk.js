@@ -69,7 +69,7 @@ class Greenblk extends React.Component {
         const APP_ID = "efb4537f";
         const APP_KEY = "3957081447cbddc95fd0ae1dda9e5529";
         
-        fetch(`https://api.edamam.com/search?q=${search}&app_id=${APP_ID}&app_key=${APP_KEY}`)
+        fetch(`https://api.edamam.com/search?q=${search}&app_id=${APP_ID}&app_key=${APP_KEY}&health=vegetarian`)
         .then((response) => response.json())
         .then(recipesList => {
             this.setState({ recipes: recipesList})
@@ -96,8 +96,9 @@ class Greenblk extends React.Component {
         console.log(newSearchString);
     }
 
-    resetList = () => {
+    resetSearch = () => {
         this.setState({list: []})
+        this.setState({search:""})
         console.log("list reset")
     }
 
@@ -144,7 +145,7 @@ class Greenblk extends React.Component {
                     </div>
                 </div>
                 {this.state.list.length !== 0 &&(
-                    <button className = "reset-button" onClick={() => this.resetList()}>Reset</button>
+                    <button className = "reset-button" onClick={() => this.resetSearch()}>Reset</button>
                 )}
 
             </div>
