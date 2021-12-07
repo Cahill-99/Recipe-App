@@ -55,7 +55,6 @@ class Greenblk extends React.Component {
         search: searchString,
         suggestions: "",
         list: ingredientsList})
-        //list: this.state.list.concat([selected])}) // adds selected suggestion to search string
 
         console.log(searchString)
         console.log(ingredientsList)
@@ -68,8 +67,14 @@ class Greenblk extends React.Component {
     fetchRecipes = (search) => {
         const APP_ID = "efb4537f";
         const APP_KEY = "3957081447cbddc95fd0ae1dda9e5529";
+
+        let vegActive;
+        let glutenActive;
+
+        this.props.glutenFree === true ? glutenActive="&health=gluten-free" : glutenActive=""; // toggles gluten filter
+        this.props.vegetarian === true ? vegActive="&health=vegetarian" : vegActive=""; // toggles vegetarian filter
         
-        fetch(`https://api.edamam.com/search?q=${search}&app_id=${APP_ID}&app_key=${APP_KEY}&health=vegetarian`)
+        fetch(`https://api.edamam.com/search?q=${search}&app_id=${APP_ID}&app_key=${APP_KEY}${glutenActive}${vegActive}`)
         .then((response) => response.json())
         .then(recipesList => {
             this.setState({ recipes: recipesList})

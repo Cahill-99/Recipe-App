@@ -46,13 +46,13 @@ class Main extends React.Component {
         return (
 
         <div className = "base-wrapper-main">
-            <Greenblk />
+            <Greenblk glutenFree={this.state.glutenFree}
+            vegetarian={this.state.vegetarian}
+            />
             <Blueblk toggleGlutenFilter={this.toggleGlutenFilter}
             glutenFreeColor={this.state.glutenFreeColor} 
             toggleVegetarianFilter={this.toggleVegetarianFilter}
             vegetarianColor={this.state.vegetarianColor}
-
-
             />
         </div>
         );

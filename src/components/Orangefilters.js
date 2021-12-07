@@ -12,17 +12,6 @@ class Orangefilters extends React.Component {
         };
     }
 
-    // toggleGlutenFilter = () => {
-    //     console.log("toggle")
-    //     this.state.glutenFree === true ? this.setState({glutenFree:false}) : this.setState({glutenFree:true})
-    //     this.state.glutenFreeColor === "" ? this.setState({glutenFreeColor:"white"}) : this.setState({glutenFreeColor:""})
-    // }
-
-    // toggleVegetarianFilter = () => {
-    //     console.log("toggle")
-    //     this.state.vegetarian === true ? this.setState({vegetarian:false}) : this.setState({vegetarian:true})
-    //     this.state.vegetarianColor === "" ? this.setState({vegetarianColor:"white"}) : this.setState({vegetarianColor:""}) 
-    // }
 
     render() {
         return (
