@@ -13,7 +13,6 @@ class Greenblk extends React.Component {
           
         };
     this.handleChange = this.handleChange.bind(this);
-    //this.fetchRecipes = this.fetchRecipes.bind(this);
 
 
     }
@@ -60,27 +59,11 @@ class Greenblk extends React.Component {
         console.log(ingredientsList)
         console.log(ingredientsList.length)
 
-        this.fetchRecipes(searchString)
+        this.props.fetchRecipes(searchString)
     }
     
 
-    fetchRecipes = (search) => {
-        const APP_ID = "efb4537f";
-        const APP_KEY = "3957081447cbddc95fd0ae1dda9e5529";
 
-        let vegActive;
-        let glutenActive;
-
-        this.props.glutenFree === true ? glutenActive="&health=gluten-free" : glutenActive=""; // toggles gluten filter
-        this.props.vegetarian === true ? vegActive="&health=vegetarian" : vegActive=""; // toggles vegetarian filter
-        
-        fetch(`https://api.edamam.com/search?q=${search}&app_id=${APP_ID}&app_key=${APP_KEY}${glutenActive}${vegActive}`)
-        .then((response) => response.json())
-        .then(recipesList => {
-            this.setState({ recipes: recipesList})
-            console.log(recipesList)
-        })
-    };
 
     deleteIngredient = (ingredient) => {
 
@@ -96,7 +79,7 @@ class Greenblk extends React.Component {
         const newSearchString = prevSearchString.replace(ingredientPiece,"")
 
         this.setState({ search: newSearchString});
-        this.fetchRecipes(newSearchString);
+        this.props.fetchRecipes(newSearchString);
 
         console.log(newSearchString);
     }

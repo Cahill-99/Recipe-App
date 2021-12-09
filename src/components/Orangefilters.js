@@ -35,13 +35,13 @@ class Orangefilters extends React.Component {
                     </div>
                     <div className = "diet-dark">
                             <button className = "gluten-btn"  
-                            onClick={()=> this.props.toggleGlutenFilter()} 
+                            onClick={()=> this.props.toggleGlutenFilter(this.props.searchState)} 
                             style={{backgroundColor: this.props.glutenFreeColor}}>
 
                             </button>
                             <p className = "filter-subtext">Gluten free</p>
                             <button className = "veg-btn"
-                            onClick={()=> this.props.toggleVegetarianFilter()}
+                            onClick={()=> this.props.toggleVegetarianFilter(this.props.searchState)}
                             style={{backgroundColor: this.props.vegetarianColor}}>
                                 
                             </button>
