@@ -50,10 +50,9 @@ class Main extends React.Component {
             glutenStatus=false
         }
         console.log(glutenStatus)
-        console.log(`searchstate ${this.state}`)
-        setTimeout(() => {
-            this.fetchRecipes(search);}
-            ,200)
+        if(this.state.search !== "") 
+        {setTimeout(() => {this.fetchRecipes(search);},200)
+        }
 
     }
 
@@ -68,9 +67,9 @@ class Main extends React.Component {
             vegStatus=false
         }
         console.log(vegStatus);
-        setTimeout(() => {
-            this.fetchRecipes(search);}
-            ,200)
+        if(this.state.search !== "") 
+        {setTimeout(() => {this.fetchRecipes(search);},200)
+        }
     }
 
 
