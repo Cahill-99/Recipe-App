@@ -535,10 +535,9 @@ a {
 
 .filter-subtext{
   margin:0;
-  font:15px Montserrat, sans-serif;
+  font:17px Montserrat, sans-serif;
   color:#FFF4DA;
-  margin-top:auto;
-  margin-bottom:auto;
+  margin-left:7px;
 }
 
 code {
