@@ -2,6 +2,8 @@ import React from 'react';
 import Greenblk from "./Greenblk";
 import Blueblk from "./Blueblk";
 
+require('dotenv').config()
+
 class Main extends React.Component {
 
     constructor(props) {
@@ -19,8 +21,7 @@ class Main extends React.Component {
     //FETCH RECIPES
 
     fetchRecipes = (search) => {
-        const APP_ID = "efb4537f";
-        const APP_KEY = "3957081447cbddc95fd0ae1dda9e5529";
+        
 
         let vegActive;
         let glutenActive;
@@ -29,10 +30,10 @@ class Main extends React.Component {
 
         this.state.glutenFree === true ? glutenActive="&health=gluten-free" : glutenActive=""; // toggles gluten filter
         this.state.vegetarian === true ? vegActive="&health=vegetarian" : vegActive=""; // toggles vegetarian filter
-        let searchURL = `https://api.edamam.com/search?q=${search}&app_id=${APP_ID}&app_key=${APP_KEY}${glutenActive}${vegActive}`
+        let searchURL = `https://api.edamam.com/search?q=${search}&app_id=${process.env.REACT_APP_EDAMAM_ID}&app_key=${process.env.REACT_APP_EDAMAM_KEY}${glutenActive}${vegActive}`
         console.log(searchURL)
         
-        fetch(`https://api.edamam.com/search?q=${search}&app_id=${APP_ID}&app_key=${APP_KEY}${glutenActive}${vegActive}`)
+        fetch(searchURL)
         .then((response) => response.json())
         .then(recipesList => {
             this.setState({ recipes: recipesList})
