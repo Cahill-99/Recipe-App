@@ -24,9 +24,9 @@ class Greenblk extends React.Component {
         }
         const val = evt.target.value;
         this._timeout = setTimeout(()=>{
-           //this._timeout = null;
-
+            if(val !== ""){
            this.autoComplete(val);
+            }
         },500);
 
       }
@@ -49,7 +49,6 @@ class Greenblk extends React.Component {
     handleClick = (selected) => {
         let searchString = this.state.search + " " + selected;
         let ingredientsList = this.state.list.concat([selected]);
-        //console.log(selected)
         this.setState({
         search: searchString,
         suggestions: "",
@@ -57,7 +56,6 @@ class Greenblk extends React.Component {
 
         console.log(searchString)
         console.log(ingredientsList)
-        console.log(ingredientsList.length)
 
         this.props.fetchRecipes(searchString)
     }
@@ -84,7 +82,7 @@ class Greenblk extends React.Component {
         console.log(newSearchString);
     }
 
-    resetSearch = () => {
+    resetSearch = () => { //Remove all ingredients
         this.setState({list: []})
         this.setState({search:""})
         console.log("list reset")

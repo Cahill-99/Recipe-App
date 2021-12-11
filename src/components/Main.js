@@ -16,6 +16,8 @@ class Main extends React.Component {
         };
     }
 
+    //FETCH RECIPES
+
     fetchRecipes = (search) => {
         const APP_ID = "efb4537f";
         const APP_KEY = "3957081447cbddc95fd0ae1dda9e5529";
@@ -39,6 +41,9 @@ class Main extends React.Component {
     };
     
 
+
+    //ORANGE FILTERS
+
     toggleGlutenFilter = (search) => {
         console.log("toggle")
         let glutenStatus=this.state.glutenFree;
@@ -51,7 +56,7 @@ class Main extends React.Component {
         }
         console.log(glutenStatus)
         if(this.state.search !== "") 
-        {setTimeout(() => {this.fetchRecipes(search);},200)
+        {setTimeout(() => {this.fetchRecipes(search);},200) //Timeout for fetch recipes to counter the info lag
         }
 
     }
@@ -68,7 +73,7 @@ class Main extends React.Component {
         }
         console.log(vegStatus);
         if(this.state.search !== "") 
-        {setTimeout(() => {this.fetchRecipes(search);},200)
+        {setTimeout(() => {this.fetchRecipes(search);},200) //Timeout for fetch recipes to counter the info lag
         }
     }
 
