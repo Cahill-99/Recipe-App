@@ -6,7 +6,6 @@ function Greenblk(props) {
 
 
     const [search,setSearch] = useState('')
-    //const [recipes,setRecipes] = useState('')
     const [suggestions,setSuggestions] = useState([])
     const [list,setList] = useState([])
     const [inputValue,setInputValue] = useState('')
@@ -37,7 +36,6 @@ function Greenblk(props) {
         .then((response) => response.json())
         .then(autoComplete => {
             setSuggestions(autoComplete);
-            //setState({ suggestions: autoComplete})
         })
         console.log(suggestions);
     };
@@ -50,10 +48,7 @@ function Greenblk(props) {
         setSearch(searchString);
         setSuggestions("");
         setList(ingredientsList)
-        // setState({
-        // search: searchString,
-        // suggestions: "",
-        // list: ingredientsList})
+
 
         console.log(searchString)
         console.log(ingredientsList)
@@ -71,7 +66,6 @@ function Greenblk(props) {
         const updatedList = listCopy.filter(item => item !== ingredient);
 
         setList(updatedList)
-        //setState({list: updatedList});
 
         //remove clicked ingredient from search state
         const ingredientPiece = " " + ingredient;
@@ -79,7 +73,6 @@ function Greenblk(props) {
         const newSearchString = prevSearchString.replace(ingredientPiece,"")
 
         setSearch(newSearchString)
-        //setState({ search: newSearchString});
         props.fetchRecipes(newSearchString);
 
         console.log(newSearchString);
@@ -89,8 +82,6 @@ function Greenblk(props) {
         setList([]);
         setSearch("")
         
-        //setState({list: []})
-        //setState({search:""})
         console.log("list reset")
     }
 
