@@ -1,19 +1,8 @@
 import React from 'react';
 
-class Orangefilters extends React.Component {
+function Orangefilters(props) {
     
-    constructor(props) {
-        super(props);
-        this.state = {
-            glutenFree:false,
-            vegetarian:false,
-            glutenFreeColor:"",
-            vegetarianColor:""
-        };
-    }
 
-
-    render() {
         return (
 
             <div className = "filter-wrapper">
@@ -36,16 +25,16 @@ class Orangefilters extends React.Component {
                     <div className = "diet-dark">
                         <div className = "filter-wrapper">
                             <button className = "gluten-btn"  
-                            onClick={()=> this.props.toggleGlutenFilter(this.props.searchState)} 
-                            style={{backgroundColor: this.props.glutenFreeColor}}>
+                            onClick={()=> props.toggleGlutenFilter(props.searchState)} 
+                            style={{backgroundColor: props.glutenFreeColor}}>
 
                             </button>
                             <p className = "filter-subtext">Gluten free</p>
                         </div>
                         <div className = "filter-wrapper">
                             <button className = "veg-btn"
-                            onClick={()=> this.props.toggleVegetarianFilter(this.props.searchState)}
-                            style={{backgroundColor: this.props.vegetarianColor}}>
+                            onClick={()=> props.toggleVegetarianFilter(props.searchState)}
+                            style={{backgroundColor: props.vegetarianColor}}>
                                 
                             </button>
                             <p className = "filter-subtext">Vegetarian</p>
@@ -54,7 +43,6 @@ class Orangefilters extends React.Component {
                 </div>
             </div>
         );
-    }
 }
 
 export default Orangefilters;
