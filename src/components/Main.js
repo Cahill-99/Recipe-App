@@ -1,42 +1,39 @@
-import React from 'react';
+import React, {useState} from 'react';
 import Greenblk from "./Greenblk";
 import Blueblk from "./Blueblk";
 
 require('dotenv').config()
 
-class Main extends React.Component {
+function Main() {
 
-    constructor(props) {
-        super(props);
-        this.state = {
-            glutenFree:false,
-            vegetarian:false,
-            glutenFreeColor:"",
-            vegetarianColor:"",
-            recipes:"",
-            search:""
-        };
-    }
+
+    const [glutenFree,setGlutenFree] = useState(false)
+    const [vegetarian,setVegetarian] = useState(false)
+    const [glutenFreeColor,setGlutenFreeColor] = useState("")
+    const [vegetarianColor,setVegetarianColor] = useState("")
+    const [search,setSearch] = useState("")
+    const [recipes,setRecipes] = useState("")
+
 
     //FETCH RECIPES
 
-    fetchRecipes = (search) => {
+    const fetchRecipes = (search) => {
         
 
         let vegActive;
         let glutenActive;
-        this.setState({search:search})
+        setSearch(search);
 
 
-        this.state.glutenFree === true ? glutenActive="&health=gluten-free" : glutenActive=""; // toggles gluten filter
-        this.state.vegetarian === true ? vegActive="&health=vegetarian" : vegActive=""; // toggles vegetarian filter
+        glutenFree === true ? glutenActive="&health=gluten-free" : glutenActive=""; // toggles gluten filter
+        vegetarian === true ? vegActive="&health=vegetarian" : vegActive=""; // toggles vegetarian filter
         let searchURL = `https://api.edamam.com/search?q=${search}&app_id=${process.env.REACT_APP_EDAMAM_ID}&app_key=${process.env.REACT_APP_EDAMAM_KEY}${glutenActive}${vegActive}`
         console.log(searchURL)
         
         fetch(searchURL)
         .then((response) => response.json())
         .then(recipesList => {
-            this.setState({ recipes: recipesList})
+            setRecipes(recipesList)
             console.log(recipesList)
         })
     };
@@ -45,62 +42,64 @@ class Main extends React.Component {
 
     //ORANGE FILTERS
 
-    toggleGlutenFilter = (search) => {
+    const toggleGlutenFilter = (searchInput) => {
         console.log("toggle")
-        let glutenStatus=this.state.glutenFree;
+        let glutenStatus=glutenFree;
         if(glutenStatus===false) {
-            this.setState({glutenFree:true, glutenFreeColor:"white"})
+            setGlutenFree(true)
+            setGlutenFreeColor("white")
             glutenStatus=true
         } else {
-            this.setState({glutenFree:false, glutenFreeColor:""})
+            setGlutenFree(false)
+            setGlutenFreeColor("")
             glutenStatus=false
         }
         console.log(glutenStatus)
-        if(this.state.search !== "") 
-        {setTimeout(() => {this.fetchRecipes(search);},200) //Timeout for fetch recipes to counter the info lag
+        if(search !== "") 
+        {setTimeout(() => {fetchRecipes(searchInput);},200) //Timeout for fetch recipes to counter the info lag
         }
 
     }
 
-    toggleVegetarianFilter = (search) => {
+    const toggleVegetarianFilter = (searchInput) => {
         console.log("toggle")
-        let vegStatus=this.state.vegetarian;
+        let vegStatus=vegetarian;
         if(vegStatus===false) {
-            this.setState({vegetarian:true, vegetarianColor:"white"})
+            setVegetarian(true)
+            setVegetarianColor("white")
             vegStatus=true
         } else {
-            this.setState({vegetarian:false, vegetarianColor:""})
+            setVegetarian(false)
+            setVegetarianColor("")
             vegStatus=false
         }
         console.log(vegStatus);
-        if(this.state.search !== "") 
-        {setTimeout(() => {this.fetchRecipes(search);},200) //Timeout for fetch recipes to counter the info lag
+        if(search !== "") 
+        {setTimeout(() => {this.fetchRecipes(searchInput);},200) //Timeout for fetch recipes to counter the info lag
         }
     }
 
 
 
-    render() {
         return (
 
         <div className = "base-wrapper-main">
-            <Greenblk glutenFree={this.state.glutenFree}
-            vegetarian={this.state.vegetarian}
-            fetchRecipes={this.fetchRecipes}
-            search={this.state.search}
+            <Greenblk glutenFree={glutenFree}
+            vegetarian={vegetarian}
+            fetchRecipes={fetchRecipes}
+            search={search}
             />
-            <Blueblk toggleGlutenFilter={this.toggleGlutenFilter}
-            glutenFreeColor={this.state.glutenFreeColor} 
-            toggleVegetarianFilter={this.toggleVegetarianFilter}
-            vegetarianColor={this.state.vegetarianColor}
-            searchState={this.state.search}
+            <Blueblk toggleGlutenFilter={toggleGlutenFilter}
+            glutenFreeColor={glutenFreeColor} 
+            toggleVegetarianFilter={toggleVegetarianFilter}
+            vegetarianColor={vegetarianColor}
+            searchState={search}
             />
         </div>
         );
-    }
-
-
 }
+
+
 
 
 export default Main;
