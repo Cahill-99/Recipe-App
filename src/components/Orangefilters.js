@@ -1,19 +1,45 @@
-import React from 'react';
+import React, {useState} from 'react';
 
 function Orangefilters(props) {
+
+    const [dropdown,setDropdown] = useState("none")
+
+    const toggleTimeDropdown = () => {
+        let dropdownStatus = "none";
+
+        dropdown === "none" ? dropdownStatus="flex" : dropdownStatus="none";
+
+        setDropdown(dropdownStatus);
+        
+
+    }
     
 
         return (
 
             <div className = "filter-wrapper">
                 <div className = "time-wrapper">
-                    <div className = "time-light">
-                        <p className = "filter-text">
-                            Time
-                        </p>
+                    <div className = "time-button">
+                        <div className = "time-light">
+                            <p className = "filter-text">
+                                Time
+                            </p>
+                        </div>
+                        <div className = "time-dark" onClick={()=> toggleTimeDropdown()}>
+                        <img className = "filter-arrow"  src = "Images/filterarrow.png" alt = "drop down arrow"></img>
+                        </div>
                     </div>
-                    <div className = "time-dark">
-                    <img className = "filter-arrow"  src = "Images/filterarrow.png" alt = "drop down arrow"></img>
+                    <div className = "time-dropdown"
+                    style={{display:dropdown}}>
+                        <button className = "time-option">
+                            10 mins
+                        </button>
+                        <button className = "time-option">
+                            25 mins
+                        </button>
+                        <button className = "time-option">
+                            1 hr
+                        </button>
                     </div>
                 </div>
                 <div className = "diet-wrapper">
