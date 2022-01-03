@@ -13,6 +13,8 @@ function Main() {
     const [vegetarianColor,setVegetarianColor] = useState("")
     const [search,setSearch] = useState("")
     const [recipes,setRecipes] = useState("")
+    const [dropdown,setDropdown] = useState("none")
+    const [timeFilter,setTimeFilter] = useState("")
 
 
     //FETCH RECIPES
@@ -27,7 +29,7 @@ function Main() {
 
         glutenFree === true ? glutenActive="&health=gluten-free" : glutenActive=""; // toggles gluten filter
         vegetarian === true ? vegActive="&health=vegetarian" : vegActive=""; // toggles vegetarian filter
-        let searchURL = `https://api.edamam.com/search?q=${search}&app_id=${process.env.REACT_APP_EDAMAM_ID}&app_key=${process.env.REACT_APP_EDAMAM_KEY}${glutenActive}${vegActive}`
+        let searchURL = `https://api.edamam.com/search?q=${search}&app_id=${process.env.REACT_APP_EDAMAM_ID}&app_key=${process.env.REACT_APP_EDAMAM_KEY}${glutenActive}${vegActive}${timeFilter}`
         console.log(searchURL)
         
         fetch(searchURL)
@@ -41,6 +43,24 @@ function Main() {
 
 
     //ORANGE FILTERS
+
+
+    const toggleTimeDropdown = () => {
+        let dropdownStatus = "none";
+
+        dropdown === "none" ? dropdownStatus="flex" : dropdownStatus="none";
+
+        setDropdown(dropdownStatus);
+        
+    }
+
+    const handleTime = (time, searchInput) => {
+        setTimeFilter(`time=${time}`)
+
+        if(search!== "")
+        {setTimeout(() => {fetchRecipes(searchInput);},200) //Timeout for fetch recipes to counter the info lag
+        }
+    }
 
     const toggleGlutenFilter = (searchInput) => {
         console.log("toggle")
@@ -94,6 +114,9 @@ function Main() {
             toggleVegetarianFilter={toggleVegetarianFilter}
             vegetarianColor={vegetarianColor}
             searchState={search}
+            toggleTimeDropdown={toggleTimeDropdown}
+            dropdown={dropdown}
+            handleTime={handleTime}
             />
         </div>
         );

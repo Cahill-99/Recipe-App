@@ -11,7 +11,10 @@ function Blueblk(props) {
                 glutenFreeColor={props.glutenFreeColor}
                 toggleVegetarianFilter={props.toggleVegetarianFilter}
                 vegetarianColor={props.vegetarianColor}
-                searchState={props.searchState}/>
+                searchState={props.searchState}
+                toggleTimeDropdown={props.toggleTimeDropdown}
+                dropdown={props.dropdown}
+                handleTime={props.handleTime}/>
                 <div className = "white-block-main">
                 <img className = "placeholder-plate"  src = "Images/plate.png" alt = "plate with fork"></img>
                 </div>

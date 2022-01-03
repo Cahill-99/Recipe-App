@@ -1,18 +1,10 @@
-import React, {useState} from 'react';
+import React from 'react';
 
 function Orangefilters(props) {
 
-    const [dropdown,setDropdown] = useState("none")
 
-    const toggleTimeDropdown = () => {
-        let dropdownStatus = "none";
 
-        dropdown === "none" ? dropdownStatus="flex" : dropdownStatus="none";
 
-        setDropdown(dropdownStatus);
-        
-
-    }
     
 
         return (
@@ -25,19 +17,22 @@ function Orangefilters(props) {
                                 Time
                             </p>
                         </div>
-                        <div className = "time-dark" onClick={()=> toggleTimeDropdown()}>
+                        <div className = "time-dark" onClick={()=> props.toggleTimeDropdown()}>
                         <img className = "filter-arrow"  src = "Images/filterarrow.png" alt = "drop down arrow"></img>
                         </div>
                     </div>
                     <div className = "time-dropdown"
-                    style={{display:dropdown}}>
-                        <button className = "time-option">
-                            10 mins
+                    style={{display: props.dropdown}}>
+                        <button className = "time-option"
+                        onClick={()=> props.handleTime(15, props.searchState)}>
+                            15 min
                         </button>
-                        <button className = "time-option">
-                            25 mins
+                        <button className = "time-option"
+                        onClick={()=> props.handleTime(30, props.searchState)}>
+                            30 min
                         </button>
-                        <button className = "time-option">
+                        <button className = "time-option"
+                        onClick={()=> props.handleTime(60, props.searchState)}>
                             1 hr
                         </button>
                     </div>
