@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import Greenblk from "./Greenblk";
 import Blueblk from "./Blueblk";
 
@@ -25,6 +25,7 @@ function Main() {
         let vegActive;
         let glutenActive;
         setSearch(search);
+        console.log(timeFilter)
 
 
         glutenFree === true ? glutenActive="&health=gluten-free" : glutenActive=""; // toggles gluten filter
@@ -35,14 +36,17 @@ function Main() {
         fetch(searchURL)
         .then((response) => response.json())
         .then(recipesList => {
-            setRecipes(recipesList)
-            console.log(recipesList)
+            setRecipes(recipesList.hits)
+            console.log(recipesList.hits)
         })
     };
     
 
 
     //ORANGE FILTERS
+
+
+    //Time Filters
 
 
     const toggleTimeDropdown = () => {
@@ -53,14 +57,40 @@ function Main() {
         setDropdown(dropdownStatus);
         
     }
+    const handleTime = (time,searchInput) => {
+        setTimeFilter(`&time=${time}`)
+        console.log(time)
+        
 
-    const handleTime = (time, searchInput) => {
-        setTimeFilter(`time=${time}`)
-
-        if(search!== "")
+        if(search !== "")
         {setTimeout(() => {fetchRecipes(searchInput);},200) //Timeout for fetch recipes to counter the info lag
         }
     }
+
+    useEffect(()=>{
+        let vegActive;
+        let glutenActive;
+
+
+
+        glutenFree === true ? glutenActive="&health=gluten-free" : glutenActive=""; // toggles gluten filter
+        vegetarian === true ? vegActive="&health=vegetarian" : vegActive="";
+        console.log("useEffect Fetch")
+        console.log(`time filter:${timeFilter}`)
+        console.log(`veg filter:${vegetarian}`)
+        console.log(`Gluten Filter:${glutenFree}`)
+        console.log(`search is:${search}`)
+        fetch(`https://api.edamam.com/search?q=${search}&app_id=${process.env.REACT_APP_EDAMAM_ID}&app_key=${process.env.REACT_APP_EDAMAM_KEY}${glutenActive}${vegActive}${timeFilter}`)
+        .then((response) => response.json())
+        .then(recipesList => {
+            setRecipes(recipesList.hits)
+            console.log(recipesList.hits)
+        })
+    },[timeFilter,glutenFree,vegetarian,search])
+    
+
+
+    //Diet Filters
 
     const toggleGlutenFilter = (searchInput) => {
         console.log("toggle")
@@ -95,7 +125,7 @@ function Main() {
         }
         console.log(vegStatus);
         if(search !== "") 
-        {setTimeout(() => {this.fetchRecipes(searchInput);},200) //Timeout for fetch recipes to counter the info lag
+        {setTimeout(() => {fetchRecipes(searchInput);},200) //Timeout for fetch recipes to counter the info lag
         }
     }
 
@@ -117,6 +147,7 @@ function Main() {
             toggleTimeDropdown={toggleTimeDropdown}
             dropdown={dropdown}
             handleTime={handleTime}
+            recipes={recipes}
             />
         </div>
         );

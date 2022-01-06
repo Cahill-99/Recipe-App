@@ -72,7 +72,7 @@ function Greenblk(props) {
         const newSearchString = prevSearchString.replace(ingredientPiece,"")
 
         setSearch(newSearchString)
-        props.fetchRecipes(newSearchString);
+        // props.fetchRecipes(newSearchString);
 
         console.log(newSearchString);
     }

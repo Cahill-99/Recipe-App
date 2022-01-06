@@ -16,7 +16,11 @@ function Blueblk(props) {
                 dropdown={props.dropdown}
                 handleTime={props.handleTime}/>
                 <div className = "white-block-main">
+                    <div className = "recipes-wrapper">
+                    
+                    </div>
                 <img className = "placeholder-plate"  src = "Images/plate.png" alt = "plate with fork"></img>
+                
                 </div>
             </div>
         );
