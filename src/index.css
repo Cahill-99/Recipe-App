@@ -494,11 +494,25 @@ a {
   display:flex;
   flex-direction:column;
   position:relative;
+  top:4px;
   display:none;
+  background-color:#DC8D09;
+  border-radius:15px;
+  border-bottom-left-radius:15px;
+  border-bottom-right-radius:15px;
 
 }
 .time-option{
   z-index: 1;
+  background-color:transparent;
+  font:17px Montserrat, sans-serif;
+  color:#FFF4DA;
+  border:none;
+  cursor:pointer;
+}
+
+.time-option:hover{
+font-weight:480;
 }
 
 .filter-arrow{
