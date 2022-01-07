@@ -19,28 +19,46 @@ function Main() {
 
     //FETCH RECIPES
 
-    const fetchRecipes = (search) => {
+    // const fetchRecipes = (search) => {
         
 
-        let vegActive;
-        let glutenActive;
-        setSearch(search);
-        console.log(timeFilter)
+    //     let vegActive;
+    //     let glutenActive;
+    //     setSearch(search);
+    //     console.log(timeFilter)
 
 
-        glutenFree === true ? glutenActive="&health=gluten-free" : glutenActive=""; // toggles gluten filter
-        vegetarian === true ? vegActive="&health=vegetarian" : vegActive=""; // toggles vegetarian filter
-        let searchURL = `https://api.edamam.com/search?q=${search}&app_id=${process.env.REACT_APP_EDAMAM_ID}&app_key=${process.env.REACT_APP_EDAMAM_KEY}${glutenActive}${vegActive}${timeFilter}`
-        console.log(searchURL)
+    //     glutenFree === true ? glutenActive="&health=gluten-free" : glutenActive=""; // toggles gluten filter
+    //     vegetarian === true ? vegActive="&health=vegetarian" : vegActive=""; // toggles vegetarian filter
+    //     let searchURL = `https://api.edamam.com/search?q=${search}&app_id=${process.env.REACT_APP_EDAMAM_ID}&app_key=${process.env.REACT_APP_EDAMAM_KEY}${glutenActive}${vegActive}${timeFilter}`
+    //     console.log(searchURL)
         
-        fetch(searchURL)
-        .then((response) => response.json())
-        .then(recipesList => {
-            setRecipes(recipesList.hits)
-            console.log(recipesList.hits)
-        })
-    };
+    //     fetch(searchURL)
+    //     .then((response) => response.json())
+    //     .then(recipesList => {
+    //         setRecipes(recipesList.hits)
+    //         console.log(recipesList.hits)
+    //     })
+    // };
+
+    const searchStringAdd = (newString) => {
+        setSearch(newString)
+        console.log(newString)
+    }
     
+    const searchStringRemove = (ingredient) => {
+        const ingredientPiece = " " + ingredient;
+        const prevSearchString = search;
+        const newSearchString = prevSearchString.replace(ingredientPiece,"")
+
+        setSearch(newSearchString)
+        console.log(newSearchString);
+    }
+
+    const searchStringReset = () => {
+        setSearch("")
+        console.log("list reset")
+    }
 
 
     //ORANGE FILTERS
@@ -57,14 +75,10 @@ function Main() {
         setDropdown(dropdownStatus);
         
     }
-    const handleTime = (time,searchInput) => {
+    const handleTime = (time) => {
         setTimeFilter(`&time=${time}`)
         console.log(time)
         
-
-        if(search !== "")
-        {setTimeout(() => {fetchRecipes(searchInput);},200) //Timeout for fetch recipes to counter the info lag
-        }
     }
 
     useEffect(()=>{
@@ -76,10 +90,11 @@ function Main() {
         glutenFree === true ? glutenActive="&health=gluten-free" : glutenActive=""; // toggles gluten filter
         vegetarian === true ? vegActive="&health=vegetarian" : vegActive="";
         console.log("useEffect Fetch")
-        console.log(`time filter:${timeFilter}`)
-        console.log(`veg filter:${vegetarian}`)
-        console.log(`Gluten Filter:${glutenFree}`)
-        console.log(`search is:${search}`)
+        console.log(`--time filter:${timeFilter}`)
+        console.log(`--veg filter:${vegetarian}`)
+        console.log(`--Gluten Filter:${glutenFree}`)
+        console.log(`--search is:${search}`)
+
         fetch(`https://api.edamam.com/search?q=${search}&app_id=${process.env.REACT_APP_EDAMAM_ID}&app_key=${process.env.REACT_APP_EDAMAM_KEY}${glutenActive}${vegActive}${timeFilter}`)
         .then((response) => response.json())
         .then(recipesList => {
@@ -105,9 +120,7 @@ function Main() {
             glutenStatus=false
         }
         console.log(glutenStatus)
-        if(search !== "") 
-        {setTimeout(() => {fetchRecipes(searchInput);},200) //Timeout for fetch recipes to counter the info lag
-        }
+
 
     }
 
@@ -124,9 +137,7 @@ function Main() {
             vegStatus=false
         }
         console.log(vegStatus);
-        if(search !== "") 
-        {setTimeout(() => {fetchRecipes(searchInput);},200) //Timeout for fetch recipes to counter the info lag
-        }
+
     }
 
 
@@ -136,8 +147,11 @@ function Main() {
         <div className = "base-wrapper-main">
             <Greenblk glutenFree={glutenFree}
             vegetarian={vegetarian}
-            fetchRecipes={fetchRecipes}
+            // fetchRecipes={fetchRecipes}
             search={search}
+            searchStringAdd={searchStringAdd}
+            searchStringRemove={searchStringRemove}
+            searchStringReset={searchStringReset}
             />
             <Blueblk toggleGlutenFilter={toggleGlutenFilter}
             glutenFreeColor={glutenFreeColor} 

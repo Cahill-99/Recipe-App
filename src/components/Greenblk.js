@@ -5,7 +5,6 @@ function Greenblk(props) {
 
 
 
-    const [search,setSearch] = useState('')
     const [suggestions,setSuggestions] = useState([])
     const [list,setList] = useState([])
     const [inputValue,setInputValue] = useState('')
@@ -42,9 +41,8 @@ function Greenblk(props) {
 
 
     const handleClick = (selected) => {
-        let searchString = search + " " + selected;
+        let searchString = props.search + " " + selected;
         let ingredientsList = list.concat([selected]);
-        setSearch(searchString);
         setSuggestions("");
         setList(ingredientsList)
 
@@ -52,7 +50,8 @@ function Greenblk(props) {
         console.log(searchString)
         console.log(ingredientsList)
 
-        props.fetchRecipes(searchString)
+        props.searchStringAdd(searchString)
+
     }
     
 
@@ -67,21 +66,16 @@ function Greenblk(props) {
         setList(updatedList)
 
         //remove clicked ingredient from search state
-        const ingredientPiece = " " + ingredient;
-        const prevSearchString = search;
-        const newSearchString = prevSearchString.replace(ingredientPiece,"")
 
-        setSearch(newSearchString)
-        // props.fetchRecipes(newSearchString);
+        props.searchStringRemove(ingredient)
 
-        console.log(newSearchString);
     }
 
     const resetSearch = () => { //Remove all ingredients
         setList([]);
-        setSearch("")
+        props.searchStringReset();
         
-        console.log("list reset")
+
     }
 
 
