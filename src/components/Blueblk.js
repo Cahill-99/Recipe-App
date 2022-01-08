@@ -17,7 +17,11 @@ function Blueblk(props) {
                 handleTime={props.handleTime}/>
                 <div className = "white-block-main">
                     <div className = "recipes-wrapper">
-                    
+                    <ul>{props.recipes && props.recipes.map(recipeItem => {
+                        return (
+                            <li key={recipeItem.recipe.label}>{recipeItem.recipe.label}</li>
+                        )
+                    })}</ul>
                     </div>
                 <img className = "placeholder-plate"  src = "Images/plate.png" alt = "plate with fork"></img>
                 
