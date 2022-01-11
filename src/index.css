@@ -578,6 +578,27 @@ font-weight:480;
   margin-left:7px;
 }
 
+.white-block-main{
+  overflow:auto;
+}
+
+.recipes-wrapper{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:space-around;
+}
+
+.recipe-card{
+  margin:20px;
+  background-color:#EDF9F0;
+  border-radius:25px;
+  overflow:hidden;
+}
+
+h5{
+  color:#255530;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
