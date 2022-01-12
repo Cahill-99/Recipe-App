@@ -22,8 +22,20 @@ function Blueblk(props) {
                     {props.recipes && props.recipes.map(recipeItem => {
                         return (
                             <div className = "recipe-card">
-                                <img className = "recipe-image" src = {recipeItem.recipe.image}></img>
-                                <h5 key={recipeItem.recipe.label}>{recipeItem.recipe.label}</h5>
+                                <img className = "recipe-image" src = {recipeItem.recipe.image} alt = {recipeItem.recipe.label}></img>
+                                <div className = "recipe-card-title-bar">
+                                    <p key={recipeItem.recipe.label} className = "card-text">{recipeItem.recipe.label}</p>
+                                </div>
+                                <div className = "recipe-card-icon-bar">
+                                    <div className = "time-display">
+                                    <img className = "clock-logo" src = "Images/clock.png" alt = "time icon"></img>
+                                    <p className = "card-icon-text">test</p>
+                                    </div>
+                                    <div className = "time-display">
+                                    <img className = "diet-logo" src = "Images/diet.png" alt = "time icon"></img>
+                                    <p className = "card-icon-text">test</p>
+                                    </div>
+                                </div>
                             </div>
                         )
                     })}

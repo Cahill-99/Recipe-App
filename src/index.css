@@ -588,15 +588,69 @@ font-weight:480;
   justify-content:space-around;
 }
 
+
 .recipe-card{
   margin:20px;
-  background-color:#EDF9F0;
   border-radius:25px;
   overflow:hidden;
+  max-width:min-content;
+  min-height:400px;
+  display:flex;
+  flex-direction:column;
 }
 
-h5{
+.recipe-card-title-bar{
+  min-height:10%;
+  background-color:white;
+  padding:auto;
+  display:flex;
+  justify-content:center;
+}
+
+.recipe-card-icon-bar{
+  background-color:#EDF9F0;
+  border-bottom-left-radius: 25px;
+  border-bottom-right-radius: 25px;
+  display:flex;
+  justify-content:space-evenly;
+}
+  .card-text{
   color:#255530;
+  max-height:min-content;
+  max-width: 80%;
+  text-align:center;
+  margin-top:12px;
+  margin-bottom:12px;
+  line-height:10px;
+  font: 20px Montserrat, sans-serif;
+  font-weight:500;
+}
+
+.card-icon-text{
+  color:#255530;
+  max-height:min-content;
+  max-width: 80%;
+  text-align:center;
+  line-height:10px;
+  font: 18px Montserrat, sans-serif;
+  font-weight:300;
+  margin-left:8px;
+  margin-top:12px;
+  margin-bottom:12px;
+}
+
+.time-display{
+  display:flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.clock-logo{
+  height:22px;
+}
+
+.diet-logo{
+  height:25px;
 }
 
 code {
