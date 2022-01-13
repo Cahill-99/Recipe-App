@@ -15,6 +15,7 @@ function Main() {
     const [recipes,setRecipes] = useState("")
     const [dropdown,setDropdown] = useState("none")
     const [timeFilter,setTimeFilter] = useState("")
+    const [pageNumber,setPageNumber] = useState(10)
 
 
     //FETCH RECIPES
@@ -57,7 +58,7 @@ function Main() {
 
         if(search !== "") {
 
-        fetch(`https://api.edamam.com/search?q=${search}&app_id=${process.env.REACT_APP_EDAMAM_ID}&app_key=${process.env.REACT_APP_EDAMAM_KEY}${glutenActive}${vegActive}${timeFilter}&from=0&to=20`)
+        fetch(`https://api.edamam.com/search?q=${search}&app_id=${process.env.REACT_APP_EDAMAM_ID}&app_key=${process.env.REACT_APP_EDAMAM_KEY}${glutenActive}${vegActive}${timeFilter}&from=1&to=${pageNumber}`)
         .then((response) => response.json())
         .then(recipesList => {
             setRecipes(recipesList.hits)
@@ -65,7 +66,7 @@ function Main() {
         })
         }
 
-    },[timeFilter,glutenFree,vegetarian,search])
+    },[timeFilter,glutenFree,vegetarian,search,pageNumber])
 
 
 
@@ -86,6 +87,12 @@ function Main() {
     const searchStringReset = () => {
         setSearch("")
         console.log("list reset")
+    }
+
+    const loadMore = () => {
+        const prevPageNumber = pageNumber;
+        setPageNumber(prevPageNumber + 10)
+        console.log("should be loading more")
     }
 
 
@@ -171,6 +178,7 @@ function Main() {
             dropdown={dropdown}
             handleTime={handleTime}
             recipes={recipes}
+            loadmore={loadMore}
             />
         </div>
         );
