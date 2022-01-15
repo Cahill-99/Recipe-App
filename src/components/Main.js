@@ -89,6 +89,7 @@ function Main() {
         console.log("list reset")
     }
 
+
     const loadMore = () => {
         const prevPageNumber = pageNumber;
         setPageNumber(prevPageNumber + 10)
@@ -169,7 +170,7 @@ function Main() {
             searchStringRemove={searchStringRemove}
             searchStringReset={searchStringReset}
             />
-            <Blueblk toggleGlutenFilter={toggleGlutenFilter}
+            { recipes && <Blueblk toggleGlutenFilter={toggleGlutenFilter}
             glutenFreeColor={glutenFreeColor} 
             toggleVegetarianFilter={toggleVegetarianFilter}
             vegetarianColor={vegetarianColor}
@@ -179,7 +180,7 @@ function Main() {
             handleTime={handleTime}
             recipes={recipes}
             loadmore={loadMore}
-            />
+            />}
         </div>
         );
 }
