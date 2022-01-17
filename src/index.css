@@ -580,6 +580,9 @@ font-weight:480;
 
 .white-block-main{
   overflow:auto;
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:space-around;
 }
 
 .recipes-wrapper{

@@ -14,6 +14,7 @@
     "react-infinite-scroll-hook": "^4.0.1",
     "react-router-dom": "^5.3.0",
     "react-scripts": "4.0.3",
+    "use-infinite-scroll-hook": "^1.0.1",
     "web-vitals": "^1.1.2"
   },
   "scripts": {
