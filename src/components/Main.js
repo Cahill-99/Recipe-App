@@ -179,7 +179,7 @@ function Main() {
             dropdown={dropdown}
             handleTime={handleTime}
             recipes={recipes}
-            loadmore={loadMore}
+            loadMore={loadMore}
             />}
         </div>
         );

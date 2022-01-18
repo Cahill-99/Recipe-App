@@ -11,9 +11,9 @@ import Orangefilters from './Orangefilters';
 
 function Blueblk(props) {
 
-    const targetContainer = useRef<"white-block-main">(null);
+    const targetContainer = useRef(null);
 
-    const loadData = () => console.log('load');
+    const loadData = () => props.loadMore();
   
     useInfiniteScrollHook(targetContainer, loadData);
 
@@ -41,7 +41,7 @@ function Blueblk(props) {
                 dropdown={props.dropdown}
                 handleTime={props.handleTime}/>
                 
-                <div className = "white-block-main" useref = {targetContainer}>
+                <div className = "white-block-main" ref = {targetContainer}>
                 {/* <InfiniteScroll dataLength={props.recipes.length} next={props.loadMore} hasMore={true} loader={<h5>Loading...</h5>} scrollableTarget="recipes-wrapper"> */}
                     {/* <div className = "recipes-wrapper"> */}
 
