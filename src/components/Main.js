@@ -15,32 +15,11 @@ function Main() {
     const [recipes,setRecipes] = useState("")
     const [dropdown,setDropdown] = useState("none")
     const [timeFilter,setTimeFilter] = useState("")
-    const [pageNumber,setPageNumber] = useState(10)
 
 
     //FETCH RECIPES
 
-    // const fetchRecipes = (search) => {
-        
 
-    //     let vegActive;
-    //     let glutenActive;
-    //     setSearch(search);
-    //     console.log(timeFilter)
-
-
-    //     glutenFree === true ? glutenActive="&health=gluten-free" : glutenActive=""; // toggles gluten filter
-    //     vegetarian === true ? vegActive="&health=vegetarian" : vegActive=""; // toggles vegetarian filter
-    //     let searchURL = `https://api.edamam.com/search?q=${search}&app_id=${process.env.REACT_APP_EDAMAM_ID}&app_key=${process.env.REACT_APP_EDAMAM_KEY}${glutenActive}${vegActive}${timeFilter}`
-    //     console.log(searchURL)
-        
-    //     fetch(searchURL)
-    //     .then((response) => response.json())
-    //     .then(recipesList => {
-    //         setRecipes(recipesList.hits)
-    //         console.log(recipesList.hits)
-    //     })
-    // };
 
     useEffect(()=>{
         let vegActive;
@@ -58,7 +37,7 @@ function Main() {
 
         if(search !== "") {
 
-        fetch(`https://api.edamam.com/search?q=${search}&app_id=${process.env.REACT_APP_EDAMAM_ID}&app_key=${process.env.REACT_APP_EDAMAM_KEY}${glutenActive}${vegActive}${timeFilter}&from=1&to=${pageNumber}`)
+        fetch(`https://api.edamam.com/search?q=${search}&app_id=${process.env.REACT_APP_EDAMAM_ID}&app_key=${process.env.REACT_APP_EDAMAM_KEY}${glutenActive}${vegActive}${timeFilter}&from=1&to=100`)
         .then((response) => response.json())
         .then(recipesList => {
             setRecipes(recipesList.hits)
@@ -66,7 +45,7 @@ function Main() {
         })
         }
 
-    },[timeFilter,glutenFree,vegetarian,search,pageNumber])
+    },[timeFilter,glutenFree,vegetarian,search])
 
 
 
@@ -89,18 +68,6 @@ function Main() {
         console.log("list reset")
     }
 
-
-    const loadMore = () => {
-
-            setTimeout(() => {
-            const prevPageNumber = pageNumber;
-            setPageNumber(prevPageNumber + 10)
-            console.log("should be loading more")
-        }, 200)
-
-
-
-    }
 
 
 
@@ -170,13 +137,12 @@ function Main() {
         <div className = "base-wrapper-main">
             <Greenblk glutenFree={glutenFree}
             vegetarian={vegetarian}
-            // fetchRecipes={fetchRecipes}
             search={search}
             searchStringAdd={searchStringAdd}
             searchStringRemove={searchStringRemove}
             searchStringReset={searchStringReset}
             />
-            { recipes && <Blueblk toggleGlutenFilter={toggleGlutenFilter}
+            <Blueblk toggleGlutenFilter={toggleGlutenFilter}
             glutenFreeColor={glutenFreeColor} 
             toggleVegetarianFilter={toggleVegetarianFilter}
             vegetarianColor={vegetarianColor}
@@ -185,8 +151,7 @@ function Main() {
             dropdown={dropdown}
             handleTime={handleTime}
             recipes={recipes}
-            loadMore={loadMore}
-            />}
+            />
         </div>
         );
 }

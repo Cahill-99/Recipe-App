@@ -1,8 +1,6 @@
-import React from 'react';
-// import InfiniteScroll from 'react-infinite-scroll-component';
+import React, {useState} from 'react';
 import { useInfiniteScrollHook } from 'use-infinite-scroll-hook/lib';
 import { useRef } from 'react';
-//import useInfiniteScroll from 'react-infinite-scroll-hook';
 import Orangefilters from './Orangefilters';
 
 
@@ -11,22 +9,23 @@ import Orangefilters from './Orangefilters';
 
 function Blueblk(props) {
 
+    const [recipeLimit,setRecipeLimit] = useState(10)
+
+    const showMore = () => {
+        setTimeout(() => {
+            setRecipeLimit(recipeLimit + 10)
+            console.log("should be loading more")
+        }, 200)
+
+    }
+
     const targetContainer = useRef(null);
 
-    const loadData = () => props.loadMore();
+    const loadData = () => showMore();
   
     useInfiniteScrollHook(targetContainer, loadData);
 
 
-        // const { loading, items, hasNextPage, error, loadMore } = useLoadItems();
-
-        // const [sentryRef, { rootRef }] = useInfiniteScroll({
-        //     loading,
-        //     hasNextPage,
-        //     onLoadMore: loadMore,
-        //     disabled: !!error,
-        //     rootMargin: '0px 0px 400px 0px',
-        //   });
 
 
         return (
@@ -42,13 +41,11 @@ function Blueblk(props) {
                 handleTime={props.handleTime}/>
                 
                 <div className = "white-block-main" ref = {targetContainer}>
-                {/* <InfiniteScroll dataLength={props.recipes.length} next={props.loadMore} hasMore={true} loader={<h5>Loading...</h5>} scrollableTarget="recipes-wrapper"> */}
-                    {/* <div className = "recipes-wrapper"> */}
 
 
 
 
-                {props.recipes && props.recipes.map((recipeItem, index) => {
+                {props.recipes && props.recipes.slice(0,recipeLimit).map((recipeItem, index) => {
                     return  (
 
                             <div className = "recipe-card" key = {index}>
@@ -72,18 +69,8 @@ function Blueblk(props) {
                     
                 )}
 
-                {/* {(loading || hasNextPage) && (
-                <ListItem ref={sentryRef}>
-                    <Loading />
-                </ListItem>
-                )}
-            </List>
-        </ListContainer> */}
 
 
-
-                    {/* </div> */}
-                    {/* </InfiniteScroll> */}
                     {props.recipes.length === 0 && (
 
                         <img className = "placeholder-plate"  src = "Images/plate.png" alt = "plate with fork"></img>
