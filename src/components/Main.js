@@ -91,9 +91,15 @@ function Main() {
 
 
     const loadMore = () => {
-        const prevPageNumber = pageNumber;
-        setPageNumber(prevPageNumber + 10)
-        console.log("should be loading more")
+
+            setTimeout(() => {
+            const prevPageNumber = pageNumber;
+            setPageNumber(prevPageNumber + 10)
+            console.log("should be loading more")
+        }, 200)
+
+
+
     }
 
 
