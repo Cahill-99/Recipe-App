@@ -35,7 +35,6 @@ function Main() {
         console.log(`--Gluten Filter:${glutenFree}`)
         console.log(`--search is:${search}`)
 
-        if(search !== "") {
 
         fetch(`https://api.edamam.com/search?q=${search}&app_id=${process.env.REACT_APP_EDAMAM_ID}&app_key=${process.env.REACT_APP_EDAMAM_KEY}${glutenActive}${vegActive}${timeFilter}&from=1&to=100`)
         .then((response) => response.json())
@@ -43,7 +42,6 @@ function Main() {
             setRecipes(recipesList.hits)
             console.log(recipesList)
         })
-        }
 
     },[timeFilter,glutenFree,vegetarian,search])
 

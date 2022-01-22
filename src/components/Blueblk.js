@@ -12,10 +12,9 @@ function Blueblk(props) {
     const [recipeLimit,setRecipeLimit] = useState(10)
 
     const showMore = () => {
-        setTimeout(() => {
             setRecipeLimit(recipeLimit + 10)
             console.log("should be loading more")
-        }, 200)
+
 
     }
 
