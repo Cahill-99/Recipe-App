@@ -10,7 +10,7 @@ function Landing() {
                 <h2>Finding recipes made easy</h2>
                 <p className = "landing-text"> 
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna</p>
-                <Link to= '/main'>
+                <Link to= '/main' className= "start-link">
                 <button className = "startbtn">Get Started</button>
                 </Link>
             </div>
