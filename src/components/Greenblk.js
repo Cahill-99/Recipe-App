@@ -45,6 +45,7 @@ function Greenblk(props) {
         let ingredientsList = list.concat([selected]);
         setSuggestions("");
         setList(ingredientsList)
+        setInputValue("")
 
 
         console.log(searchString)
@@ -53,6 +54,7 @@ function Greenblk(props) {
         props.searchStringAdd(searchString)
 
     }
+
     
 
 
