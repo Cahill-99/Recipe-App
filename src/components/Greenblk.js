@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useRef} from 'react';
 
 
 function Greenblk(props) {
@@ -44,8 +44,11 @@ function Greenblk(props) {
         let searchString = props.search + " " + selected;
         let ingredientsList = list.concat([selected]);
         setSuggestions("");
-        setList(ingredientsList)
-        setInputValue("")
+        setList(ingredientsList);
+        setInputValue("");
+        searchFocus();
+
+
 
 
         console.log(searchString)
@@ -54,7 +57,14 @@ function Greenblk(props) {
         props.searchStringAdd(searchString)
 
     }
+    
+    // focus on input feild on suggestion click
+    const InputEl = useRef();
+    const searchFocus = () => {
 
+
+        InputEl.current.focus();
+    }
     
 
 
@@ -87,7 +97,7 @@ function Greenblk(props) {
                 <div className = "green-upper-wrapper">
                     <h4>Ingredients</h4>
                     <form className = "search-form">
-                        <input className = "search-bar" type="text" value = {inputValue} onChange= {handleChange}>
+                        <input className = "search-bar" ref={InputEl} type="text" value = {inputValue} onChange= {handleChange}>
                         </input>
                     </form>
                     <div className = "green-info-wrapper">
