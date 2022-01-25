@@ -35,12 +35,13 @@ function Results(props) {
                 <Link
                  to= {{
                  pathname:'/recipe',
-                 className:"recipe-card", 
+                 activeClassName:"recipe-card", 
                  key:{index},
                  state:{recipeImage: recipeItem.recipe.image,
                         recipeTitle:  recipeItem.recipe.label,
                         recipeTime:  recipeItem.recipe.totalTime
                         }}}>
+                    <div className = "recipe-card" key = {index}>
 
                         <img className = "recipe-image" src = {recipeItem.recipe.image} alt = {recipeItem.recipe.label}></img>
                         <div className = "recipe-card-title-bar">
@@ -56,6 +57,7 @@ function Results(props) {
                             <p className = "card-icon-text">test</p>
                             </div>
                         </div>
+                    </div>
                 </Link>
 
             )}
