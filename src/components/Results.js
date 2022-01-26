@@ -39,7 +39,8 @@ function Results(props) {
                  key:{index},
                  state:{recipeImage: recipeItem.recipe.image,
                         recipeTitle:  recipeItem.recipe.label,
-                        recipeTime:  recipeItem.recipe.totalTime
+                        recipeTime:  recipeItem.recipe.totalTime,
+                        ingredients: recipeItem.recipe.ingredientLines
                         }}}>
                     <div className = "recipe-card" key = {index}>
 

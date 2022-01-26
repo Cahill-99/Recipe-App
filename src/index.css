@@ -784,6 +784,8 @@ font-weight:480;
 
 
 .rp-white{
+  display:flex;
+  flex-direction:row;
   height:100%;
   width:100%;
   border-top-left-radius: 20px;

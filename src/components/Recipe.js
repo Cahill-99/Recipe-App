@@ -14,6 +14,7 @@ function Recipe() {
     let shownImage =location.state.recipeImage;
     let shownTitle =location.state.recipeTitle;
     let shownTime =location.state.recipeTime;
+    let shownIngredients =location.state.ingredients
 
 useEffect(()=>{
 
@@ -43,6 +44,19 @@ useEffect(()=>{
                             <p className = "card-icon-text">test</p>
                             </div>
                         </div>
+                        </div>
+
+
+                        <div className = "ingredient-wrapper">
+                            {shownIngredients.map((ingredient) => {
+                                return  (
+                                    <li>
+                                        {ingredient}
+                                    </li>
+
+                                )}
+                            
+                            )}
                         </div>
 
                 </div>
