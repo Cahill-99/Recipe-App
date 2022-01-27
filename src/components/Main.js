@@ -36,7 +36,7 @@ function Main() {
         console.log(`--search is:${search}`)
 
         
-        fetch(`https://api.spoonacular.com/recipes/complexSearch?&includeIngredients=${search}&number=40${glutenActive}${vegActive}${timeFilter}&addRecipeInformation=true&instructionsRequired=true&apiKey=${process.env.REACT_APP_SPOON_KEY}`)
+        fetch(`https://api.spoonacular.com/recipes/complexSearch?&includeIngredients=${search}&number=40${glutenActive}${vegActive}${timeFilter}&addRecipeInformation=true&instructionsRequired=true&fillIngredients=true&apiKey=${process.env.REACT_APP_SPOON_KEY}`)
         .then((response) => response.json())
         .then(recipesList => {
             setRecipes(recipesList.results)
