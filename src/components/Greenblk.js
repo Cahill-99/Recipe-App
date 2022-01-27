@@ -42,7 +42,7 @@ function Greenblk(props) {
 
 
     const handleClick = (selected) => {
-        let searchString = props.search + " " + selected;
+        let searchString = props.search + "," + selected;
         let ingredientsList = list.concat([selected]);
         setSuggestions("");
         setList(ingredientsList);

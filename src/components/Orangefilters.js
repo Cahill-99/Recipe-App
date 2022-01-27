@@ -24,15 +24,15 @@ function Orangefilters(props) {
                     <div className = "time-dropdown"
                     style={{display: props.dropdown}}>
                         <button className = "time-option"
-                        onClick={()=> props.handleTime("1-15")}>
+                        onClick={()=> props.handleTime("15")}>
                             15 min
                         </button>
                         <button className = "time-option"
-                        onClick={()=> props.handleTime("1-30")}>
+                        onClick={()=> props.handleTime("30")}>
                             30 min
                         </button>
                         <button className = "time-option"
-                        onClick={()=> props.handleTime("1-60")}>
+                        onClick={()=> props.handleTime("60")}>
                             1 hr
                         </button>
                     </div>

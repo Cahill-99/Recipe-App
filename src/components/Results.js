@@ -37,21 +37,21 @@ function Results(props) {
                  pathname:'/recipe',
                  activeClassName:"recipe-card", 
                  key:{index},
-                 state:{recipeImage: recipeItem.recipe.image,
-                        recipeTitle:  recipeItem.recipe.label,
-                        recipeTime:  recipeItem.recipe.totalTime,
-                        ingredients: recipeItem.recipe.ingredientLines
+                 state:{recipeImage: recipeItem.image,
+                        recipeTitle: recipeItem.title,
+                        recipeTime: recipeItem.readyInMinutes,
+                        // ingredients: recipeItem.recipe.ingredientLines
                         }}}>
                     <div className = "recipe-card" key = {index}>
 
-                        <img className = "recipe-image" src = {recipeItem.recipe.image} alt = {recipeItem.recipe.label}></img>
+                        <img className = "recipe-image" src = {recipeItem.image} alt = {recipeItem.title}></img>
                         <div className = "recipe-card-title-bar">
-                            <p key={index} className = "card-text">{recipeItem.recipe.label}</p>
+                            <p key={index} className = "card-text">{recipeItem.title}</p>
                         </div>
                         <div className = "recipe-card-icon-bar">
                             <div className = "time-display">
                             <img className = "clock-logo" src = "Images/clock.png" alt = "time icon"></img>
-                            <p className = "card-icon-text">{recipeItem.recipe.totalTime} min </p>
+                            <p className = "card-icon-text">{recipeItem.readyInMinutes} min </p>
                             </div>
                             <div className = "time-display">
                             <img className = "diet-logo" src = "Images/diet.png" alt = "time icon"></img>
@@ -59,7 +59,7 @@ function Results(props) {
                             </div>
                         </div>
                     </div>
-                </Link>
+                 </Link>
 
             )}
             

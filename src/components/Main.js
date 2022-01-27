@@ -27,21 +27,42 @@ function Main() {
 
 
 
-        glutenFree === true ? glutenActive="&health=gluten-free" : glutenActive=""; // toggles gluten filter
-        vegetarian === true ? vegActive="&health=vegetarian" : vegActive="";
+        glutenFree === true ? glutenActive="&intolerances=gluten" : glutenActive=""; // toggles gluten filter
+        vegetarian === true ? vegActive="&diet=vegetarian" : vegActive="";
         console.log("useEffect Fetch")
         console.log(`--time filter:${timeFilter}`)
         console.log(`--veg filter:${vegetarian}`)
         console.log(`--Gluten Filter:${glutenFree}`)
         console.log(`--search is:${search}`)
 
-
-        fetch(`https://api.edamam.com/search?q=${search}&app_id=${process.env.REACT_APP_EDAMAM_ID}&app_key=${process.env.REACT_APP_EDAMAM_KEY}${glutenActive}${vegActive}${timeFilter}&from=1&to=100`)
+        
+        fetch(`https://api.spoonacular.com/recipes/complexSearch?&includeIngredients=${search}&number=40${glutenActive}${vegActive}${timeFilter}&addRecipeInformation=true&instructionsRequired=true&apiKey=${process.env.REACT_APP_SPOON_KEY}`)
         .then((response) => response.json())
         .then(recipesList => {
-            setRecipes(recipesList.hits)
+            setRecipes(recipesList.results)
             console.log(recipesList)
         })
+        
+        // let vegActive;
+        // let glutenActive;
+
+
+
+        // glutenFree === true ? glutenActive="&health=gluten-free" : glutenActive=""; // toggles gluten filter
+        // vegetarian === true ? vegActive="&health=vegetarian" : vegActive="";
+        // console.log("useEffect Fetch")
+        // console.log(`--time filter:${timeFilter}`)
+        // console.log(`--veg filter:${vegetarian}`)
+        // console.log(`--Gluten Filter:${glutenFree}`)
+        // console.log(`--search is:${search}`)
+
+        
+        // fetch(`https://api.edamam.com/search?q=${search}&app_id=${process.env.REACT_APP_EDAMAM_ID}&app_key=${process.env.REACT_APP_EDAMAM_KEY}${glutenActive}${vegActive}${timeFilter}&from=1&to=100`)
+        // .then((response) => response.json())
+        // .then(recipesList => {
+        //     setRecipes(recipesList.hits)
+        //     console.log(recipesList)
+        // })
 
     },[timeFilter,glutenFree,vegetarian,search])
 
@@ -53,7 +74,7 @@ function Main() {
     }
     
     const searchStringRemove = (ingredient) => {
-        const ingredientPiece = " " + ingredient;
+        const ingredientPiece = "," + ingredient;
         const prevSearchString = search;
         const newSearchString = prevSearchString.replace(ingredientPiece,"")
 
@@ -84,7 +105,7 @@ function Main() {
         
     }
     const handleTime = (time) => {
-        setTimeFilter(`&time=${time}`)
+        setTimeFilter(`&maxReadyTime=${time}`)
         console.log(time)
         
     }
