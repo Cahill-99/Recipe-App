@@ -29,7 +29,7 @@ useEffect(()=>{
             <div className="rp-blue">
                 <div className="rp-white">
 
-                    <div className = "recipe-card">
+                    <div className = "recipe-display">
                         <img className = "recipe-image" src = {shownImage} alt = {shownTitle}></img>
                         <div className = "recipe-card-title-bar">
                             <p className = "card-text">{shownTitle}</p>

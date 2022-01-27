@@ -791,6 +791,19 @@ font-weight:480;
   border-top-left-radius: 20px;
   grid-area:w;
   background-color:white;
+  align-items:center;
+  justify-content:space-around;
+}
+
+.recipe-display{
+  margin:20px;
+  border-radius:25px;
+  overflow:hidden;
+  max-width:min-content;
+  min-width:420px;
+  display:flex;
+  flex-direction:column;
+  text-decoration: none;
 }
 
 code {
