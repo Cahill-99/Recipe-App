@@ -1,5 +1,7 @@
 import React, {useState, useRef} from 'react';
 
+require('dotenv').config()
+
 
 function Greenblk(props) {
 
@@ -28,9 +30,8 @@ function Greenblk(props) {
 
 
       const autoComplete = (search) => {
-        const API_KEY = "82138415fc524a1d950b2bc22191c8cc";
         console.log(`search ${search}`);
-        fetch(`https://api.spoonacular.com/food/ingredients/autocomplete?query=${search}&number=5&apiKey=${API_KEY}`)
+        fetch(`https://api.spoonacular.com/food/ingredients/autocomplete?query=${search}&number=5&apiKey=${process.env.REACT_APP_SPOON_KEY}`)
         .then((response) => response.json())
         .then(autoComplete => {
             setSuggestions(autoComplete);
