@@ -20,6 +20,7 @@ function Recipe() {
 useEffect(()=>{
 
     console.log(shownTitle)
+    console.log(shownInstructions)
 },[shownImage,shownTitle,shownTime])
 
     return (
@@ -51,7 +52,7 @@ useEffect(()=>{
                         <div className = "ingredient-wrapper">
                             {shownIngredients.map((ingredient) => {
                                 return  (
-                                        <li>
+                                        <li key={ingredient} >
                                             {ingredient.original}
                                         </li>
 
@@ -61,7 +62,7 @@ useEffect(()=>{
 
                             {shownInstructions.map((step) => {
                                 return (
-                                    <div>
+                                    <div key = {step}>
                                         {console.log(step)}
                                     </div>
                                 )}
