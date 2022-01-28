@@ -493,10 +493,11 @@ a {
   border-radius:25px;
   overflow:hidden;
   max-width:min-content;
-  min-height:400px;
+  min-height:max-content;
   display:flex;
   flex-direction:column;
   text-decoration: none;
+  margin-bottom:10px;
 }
 
 .recipe-card-title-bar{

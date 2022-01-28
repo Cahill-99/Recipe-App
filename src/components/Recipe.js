@@ -15,6 +15,7 @@ function Recipe() {
     let shownTitle =location.state.recipeTitle;
     let shownTime =location.state.recipeTime;
     let shownIngredients =location.state.ingredients
+    let shownInstructions =location.state.instructions
 
 useEffect(()=>{
 
@@ -50,12 +51,20 @@ useEffect(()=>{
                         <div className = "ingredient-wrapper">
                             {shownIngredients.map((ingredient) => {
                                 return  (
-                                    <li>
-                                        {ingredient}
-                                    </li>
+                                        <li>
+                                            {ingredient.original}
+                                        </li>
 
                                 )}
                             
+                            )}
+
+                            {shownInstructions.map((step) => {
+                                return (
+                                    <div>
+                                        {console.log(step)}
+                                    </div>
+                                )}
                             )}
                         </div>
 
