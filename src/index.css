@@ -807,6 +807,49 @@ font-weight:480;
   text-decoration: none;
 }
 
+.recipe-details{
+  display:flex;
+  flex-direction:column;
+}
+
+.ingredients-list-wrapper{
+  display:grid;
+  grid-template-columns:
+  [col-start] 1fr
+  [col-2] 1fr
+  [col-end];
+}
+
+.instructions-list-wrapper{
+overflow:auto;
+}
+
+.ingredients-list{
+list-style-type:none;
+color:#255530;
+max-height:min-content;
+max-width: 80%;
+line-height:10px;
+font: 14px Montserrat, sans-serif;
+font-weight:500;
+}
+
+.ingredients-list::before{
+  content: "-";
+
+}
+
+.instructions-list{
+    color:#255530;
+    max-height:min-content;
+    max-width: 80%;
+    margin-top:12px;
+    margin-bottom:12px;
+    line-height:10px;
+    font: 14px Montserrat, sans-serif;
+    font-weight:500;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;

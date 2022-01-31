@@ -15,13 +15,14 @@ function Recipe() {
     let shownTitle =location.state.recipeTitle;
     let shownTime =location.state.recipeTime;
     let shownIngredients =location.state.ingredients
-    let shownInstructions =location.state.instructions
+    let shownInstructions =location.state.instructions[0].steps
 
 useEffect(()=>{
 
     console.log(shownTitle)
+    console.log(shownIngredients)
     console.log(shownInstructions)
-},[shownImage,shownTitle,shownTime])
+},[shownImage,shownTitle,shownTime,shownInstructions,shownIngredients])
 
     return (
         <div className="section-wrapper">
@@ -48,25 +49,32 @@ useEffect(()=>{
                         </div>
                         </div>
 
+                        <div className = "recipe-details">
 
-                        <div className = "ingredient-wrapper">
-                            {shownIngredients.map((ingredient) => {
-                                return  (
-                                        <li key={ingredient} >
-                                            {ingredient.original}
-                                        </li>
-
-                                )}
                             
-                            )}
+                            <div className = "ingredients-list-wrapper">
+                                {shownIngredients.map((ingredient) => {
+                                    return  (
+                                            <li key={ingredient} className = "ingredients-list">
+                                                {ingredient.original}
+                                            </li>
 
-                            {shownInstructions.map((step) => {
-                                return (
-                                    <div key = {step}>
-                                        {console.log(step)}
-                                    </div>
+                                    )}
+                                
                                 )}
-                            )}
+                            </div>
+                            <div className = "instructions-list-wrapper">
+                                <ol>
+                                    {shownInstructions.map((instructions) => {
+                                        return (
+                                            <li className = "instructions-list">
+                                                
+                                                {instructions.step}
+                                            </li>
+                                        )
+                                    })}
+                                </ol>
+                            </div>
                         </div>
 
                 </div>
