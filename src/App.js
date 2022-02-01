@@ -1,8 +1,8 @@
 import React from 'react';
-import Landing from "../public/components/Landing";
+import Landing from "./components/Landing";
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
-import Main from '../public/components/Main';
-import Recipe from '../public/components/Recipe';
+import Main from './components/Main';
+import Recipe from './components/Recipe';
 
 function App() {
 
