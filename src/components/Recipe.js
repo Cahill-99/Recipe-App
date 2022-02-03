@@ -49,33 +49,37 @@ useEffect(()=>{
                         </div>
                         </div>
 
-                        <div className = "recipe-details">
-
-                            
-                            <div className = "ingredients-list-wrapper">
-                                {shownIngredients.map((ingredient) => {
-                                    return  (
-                                            <li key={ingredient} className = "ingredients-list">
-                                                {ingredient.original}
-                                            </li>
-
-                                    )}
+                            <div className = "recipe-details">
+                                <h3 className = "ingredients-title">Ingredients</h3>
                                 
-                                )}
+                                <div className = "ingredients-list-wrapper">
+                                    {shownIngredients.map((ingredient) => {
+                                        return  (
+                                                <li key={ingredient} className = "ingredients-list">
+                                                    {ingredient.original}
+                                                </li>
+
+                                        )}
+                                    
+                                    )}
+                                </div>
+
+                                <h3 className = "instructions-title">Instructions</h3>
+
+                                <div className = "instructions-list-wrapper">
+                                    <ol>
+                                        {shownInstructions.map((instructions) => {
+                                            return (
+                                                <li className = "instructions-list">
+                                                    
+                                                    {instructions.step}
+                                                </li>
+                                            )
+                                        })}
+                                    </ol>
+                                </div>
                             </div>
-                            <div className = "instructions-list-wrapper">
-                                <ol>
-                                    {shownInstructions.map((instructions) => {
-                                        return (
-                                            <li className = "instructions-list">
-                                                
-                                                {instructions.step}
-                                            </li>
-                                        )
-                                    })}
-                                </ol>
-                            </div>
-                        </div>
+
 
                 </div>
 

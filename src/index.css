@@ -786,14 +786,12 @@ font-weight:480;
 
 .rp-white{
   display:flex;
-  flex-direction:row;
-  height:100%;
-  width:100%;
   border-top-left-radius: 20px;
   grid-area:w;
   background-color:white;
   align-items:center;
   justify-content:space-around;
+  padding:20px;
 }
 
 .recipe-display{
@@ -801,15 +799,48 @@ font-weight:480;
   border-radius:25px;
   overflow:hidden;
   max-width:min-content;
-  min-width:420px;
+  min-width:500px;
   display:flex;
   flex-direction:column;
   text-decoration: none;
+  grid-area: card;
 }
 
 .recipe-details{
-  display:flex;
-  flex-direction:column;
+  display:grid;
+  grid-template-columns:
+  [col-start] 1fr
+  [col-end];
+  grid-template-rows: 
+  1fr
+  1fr
+  3fr
+  1fr
+  1fr
+  3fr
+  1fr
+  ;
+
+  grid-template-areas: 
+  "."
+  "ingtitle"
+  "ing"
+  "."
+  "institle"
+  "ins"
+  ;
+  height:100%;
+  overflow:auto;
+  margin-left:30px;
+}
+
+.ingredients-title{
+  grid-area:ingtitle;
+  font:20px Montserrat, sans-serif;
+  font-weight:550;
+  color:#255530;
+  border-bottom: 3px solid #255530;
+  max-width:min-content;
 }
 
 .ingredients-list-wrapper{
@@ -818,10 +849,26 @@ font-weight:480;
   [col-start] 1fr
   [col-2] 1fr
   [col-end];
+  grid-area:ing;
+  padding-left:20px;
+
+}
+
+.instructions-title{
+  grid-area:institle;
+  font:20px Montserrat, sans-serif;
+  font-weight:550;
+  color:#255530;
+  border-bottom: 3px solid #255530;
+  max-width:min-content;
+  margin-top:30px;
+  margin-bottom:0px;
 }
 
 .instructions-list-wrapper{
-overflow:auto;
+grid-area:ins;
+padding-left:20px;
+
 }
 
 .ingredients-list{
@@ -830,13 +877,17 @@ color:#255530;
 max-height:min-content;
 max-width: 80%;
 line-height:10px;
-font: 14px Montserrat, sans-serif;
+font: 18px Montserrat, sans-serif;
 font-weight:500;
 }
 
 .ingredients-list::before{
   content: "-";
 
+}
+
+ol{
+  padding:5px;
 }
 
 .instructions-list{
@@ -846,7 +897,7 @@ font-weight:500;
     margin-top:12px;
     margin-bottom:12px;
     line-height:10px;
-    font: 14px Montserrat, sans-serif;
+    font: 18px Montserrat, sans-serif;
     font-weight:500;
 }
 
