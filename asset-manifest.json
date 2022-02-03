@@ -1,23 +1,23 @@
 {
   "files": {
-    "main.css": "/Recipe-App/main/static/css/main.f7fc511a.chunk.css",
-    "main.js": "/Recipe-App/main/static/js/main.15383503.chunk.js",
-    "main.js.map": "/Recipe-App/main/static/js/main.15383503.chunk.js.map",
-    "runtime-main.js": "/Recipe-App/main/static/js/runtime-main.99196051.js",
-    "runtime-main.js.map": "/Recipe-App/main/static/js/runtime-main.99196051.js.map",
-    "static/js/2.a12939c9.chunk.js": "/Recipe-App/main/static/js/2.a12939c9.chunk.js",
-    "static/js/2.a12939c9.chunk.js.map": "/Recipe-App/main/static/js/2.a12939c9.chunk.js.map",
-    "static/js/3.5782e24e.chunk.js": "/Recipe-App/main/static/js/3.5782e24e.chunk.js",
-    "static/js/3.5782e24e.chunk.js.map": "/Recipe-App/main/static/js/3.5782e24e.chunk.js.map",
-    "index.html": "/Recipe-App/main/index.html",
-    "static/css/main.f7fc511a.chunk.css.map": "/Recipe-App/main/static/css/main.f7fc511a.chunk.css.map",
-    "static/js/2.a12939c9.chunk.js.LICENSE.txt": "/Recipe-App/main/static/js/2.a12939c9.chunk.js.LICENSE.txt",
-    "static/media/index.css": "/Recipe-App/main/static/media/landingimage.bfdec811.jpg"
+    "main.css": "/Recipe-App/static/css/main.ebe9c828.chunk.css",
+    "main.js": "/Recipe-App/static/js/main.298b5e8e.chunk.js",
+    "main.js.map": "/Recipe-App/static/js/main.298b5e8e.chunk.js.map",
+    "runtime-main.js": "/Recipe-App/static/js/runtime-main.f3c12705.js",
+    "runtime-main.js.map": "/Recipe-App/static/js/runtime-main.f3c12705.js.map",
+    "static/js/2.efed513d.chunk.js": "/Recipe-App/static/js/2.efed513d.chunk.js",
+    "static/js/2.efed513d.chunk.js.map": "/Recipe-App/static/js/2.efed513d.chunk.js.map",
+    "static/js/3.5782e24e.chunk.js": "/Recipe-App/static/js/3.5782e24e.chunk.js",
+    "static/js/3.5782e24e.chunk.js.map": "/Recipe-App/static/js/3.5782e24e.chunk.js.map",
+    "index.html": "/Recipe-App/index.html",
+    "static/css/main.ebe9c828.chunk.css.map": "/Recipe-App/static/css/main.ebe9c828.chunk.css.map",
+    "static/js/2.efed513d.chunk.js.LICENSE.txt": "/Recipe-App/static/js/2.efed513d.chunk.js.LICENSE.txt",
+    "static/media/index.css": "/Recipe-App/static/media/landingimage.bfdec811.jpg"
   },
   "entrypoints": [
-    "static/js/runtime-main.99196051.js",
-    "static/js/2.a12939c9.chunk.js",
-    "static/css/main.f7fc511a.chunk.css",
-    "static/js/main.15383503.chunk.js"
+    "static/js/runtime-main.f3c12705.js",
+    "static/js/2.efed513d.chunk.js",
+    "static/css/main.ebe9c828.chunk.css",
+    "static/js/main.298b5e8e.chunk.js"
   ]
 }
