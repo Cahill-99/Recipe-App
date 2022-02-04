@@ -7,7 +7,7 @@ import Recipe from './components/Recipe';
 function App() {
 
     return (
-      <Router basename='/'>
+      <Router basename='/Recipe-App'>
       <div className = "wrapper">
         <img className = "logo" src = "Images/Smart-chef-logo.png" alt = "Smart Chef Logo"></img>
         <Switch>
