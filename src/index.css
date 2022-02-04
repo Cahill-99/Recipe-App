@@ -741,6 +741,13 @@ font-weight:480;
   border-top-right-radius: 20px;
   grid-area:g;
   background-color:#77D18C;
+  display:flex;
+  justify-content:center;
+}
+
+.back-arrow{
+  margin-top:20px;
+  height:35px;
 }
 
 .rp-blue{

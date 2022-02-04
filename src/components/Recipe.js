@@ -1,5 +1,6 @@
 import React, {useEffect} from 'react';
 import { useLocation } from "react-router-dom";
+import {Link} from 'react-router-dom';
 
 
 
@@ -27,7 +28,9 @@ useEffect(()=>{
     return (
         <div className="section-wrapper">
             <div className="rp-green">
-
+                <Link to='/main'>
+                    <img src = "Images/backarrow.png" className = "back-arrow"></img>
+                </Link>
             </div>
             <div className="rp-blue">
                 <div className="rp-white">
