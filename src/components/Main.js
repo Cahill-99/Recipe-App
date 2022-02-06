@@ -154,7 +154,7 @@ function Main() {
         return (
 
         <div className = "base-wrapper-main">
-            <Greenblk glutenFree={glutenFree}
+            <Ingredients glutenFree={glutenFree}
             vegetarian={vegetarian}
             search={search}
             searchStringAdd={searchStringAdd}
