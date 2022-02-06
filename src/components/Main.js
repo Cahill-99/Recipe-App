@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
-import Greenblk from "./Greenblk";
-import Blueblk from "./Blueblk";
+import Ingredients from "./Ingredients";
+import Display from "./Display";
 
 require('dotenv').config()
 
@@ -161,7 +161,7 @@ function Main() {
             searchStringRemove={searchStringRemove}
             searchStringReset={searchStringReset}
             />
-            <Blueblk toggleGlutenFilter={toggleGlutenFilter}
+            <Display toggleGlutenFilter={toggleGlutenFilter}
             glutenFreeColor={glutenFreeColor} 
             toggleVegetarianFilter={toggleVegetarianFilter}
             vegetarianColor={vegetarianColor}
