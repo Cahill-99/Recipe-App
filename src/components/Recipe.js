@@ -30,7 +30,7 @@ useEffect(()=>{
         <div className="section-wrapper">
             <div className="rp-green">
                 <Link to='/main'>
-                    <img src = "Images/backarrow.png" className = "back-arrow"></img>
+                    <img src = "Images/backarrow.png" className = "back-arrow" ></img>
                 </Link>
             </div>
             <div className="rp-blue">
