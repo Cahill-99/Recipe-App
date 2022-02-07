@@ -16,6 +16,7 @@ function Display(props) {
         return (
 
             <div className = "blue-block-main">
+                
                 <Results recipes={props.recipes}/>
 
                 <Filters toggleGlutenFilter={props.toggleGlutenFilter} 

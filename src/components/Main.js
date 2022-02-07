@@ -1,8 +1,10 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect } from 'react';
 import Ingredients from "./Ingredients";
 import Display from "./Display";
 
 require('dotenv').config()
+
+export let RecipeContext = React.createContext();
 
 function Main() {
 
@@ -153,25 +155,27 @@ function Main() {
 
         return (
 
-        <div className = "base-wrapper-main">
-            <Ingredients glutenFree={glutenFree}
-            vegetarian={vegetarian}
-            search={search}
-            searchStringAdd={searchStringAdd}
-            searchStringRemove={searchStringRemove}
-            searchStringReset={searchStringReset}
-            />
-            <Display toggleGlutenFilter={toggleGlutenFilter}
-            glutenFreeColor={glutenFreeColor} 
-            toggleVegetarianFilter={toggleVegetarianFilter}
-            vegetarianColor={vegetarianColor}
-            searchState={search}
-            toggleTimeDropdown={toggleTimeDropdown}
-            dropdown={dropdown}
-            handleTime={handleTime}
-            recipes={recipes}
-            />
-        </div>
+        <RecipeContext.Provider value={recipes} >
+            <div className = "base-wrapper-main">
+                <Ingredients glutenFree={glutenFree}
+                vegetarian={vegetarian}
+                search={search}
+                searchStringAdd={searchStringAdd}
+                searchStringRemove={searchStringRemove}
+                searchStringReset={searchStringReset}
+                />
+                <Display toggleGlutenFilter={toggleGlutenFilter}
+                glutenFreeColor={glutenFreeColor} 
+                toggleVegetarianFilter={toggleVegetarianFilter}
+                vegetarianColor={vegetarianColor}
+                searchState={search}
+                toggleTimeDropdown={toggleTimeDropdown}
+                dropdown={dropdown}
+                handleTime={handleTime}
+                recipes={recipes}
+                />
+            </div>
+        </RecipeContext.Provider>
         );
 }
 

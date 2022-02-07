@@ -1,11 +1,14 @@
-import React, {useState, useRef} from 'react';
+import React, {useState, useRef } from 'react';
 import { useInfiniteScrollHook } from 'use-infinite-scroll-hook/lib';
 import {Link} from 'react-router-dom';
+import {RecipeContext} from "./Main"
 
 
 
 
 function Results(props) {
+
+    let contextData = React.useContext(RecipeContext);
 
     const [recipeLimit,setRecipeLimit] = useState(10)
 
@@ -30,7 +33,7 @@ function Results(props) {
 
 
 
-        {props.recipes && props.recipes.slice(0,recipeLimit).map((recipeItem, index) => {
+        {contextData && contextData.slice(0,recipeLimit).map((recipeItem, index) => {
             return  (
                 <Link
                  to= {{
@@ -68,7 +71,7 @@ function Results(props) {
 
 
 
-        {props.recipes.length === 0 && (
+        {contextData.length === 0 && (
 
             <img className = "placeholder-plate"  src = "Images/plate.png" alt = "plate with fork"></img>
 
