@@ -1,6 +1,6 @@
 import React from 'react';
 import Landing from "./components/Landing";
-import {BrowserRouter as Router, Switch, Route, HashRouter} from 'react-router-dom';
+import {BrowserRouter as Router, Route, HashRouter} from 'react-router-dom';
 import Main from './components/Main';
 import Recipe from './components/Recipe';
 

@@ -108,6 +108,7 @@ function Main() {
     }
     const handleTime = (time) => {
         setTimeFilter(`&maxReadyTime=${time}`)
+        toggleTimeDropdown();
         console.log(time)
         
     }
