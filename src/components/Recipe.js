@@ -4,7 +4,6 @@ import {Link} from 'react-router-dom';
 
 
 
-
 function Recipe() {
 
     const location=useLocation()
@@ -30,14 +29,14 @@ useEffect(()=>{
         <div className="section-wrapper">
             <div className="rp-green">
                 <Link to='/main'>
-                    <img src = "Images/backarrow.png" className = "back-arrow" ></img>
+                    <img src = "Images/backarrow.png" className = "back-arrow" alt = "back arrow"></img>
                 </Link>
             </div>
             <div className="rp-blue">
                 <div className="rp-white">
 
                     <div className = "recipe-display">
-                        <img className = "recipe-image" src = {shownImage} alt = {shownTitle}></img>
+                        <img className = "recipe-image" src = {shownImage} alt = "recipe"></img>
                         <div className = "recipe-card-title-bar">
                             <p className = "card-text">{shownTitle}</p>
                         </div>
@@ -47,7 +46,7 @@ useEffect(()=>{
                             <p className = "card-icon-text">{shownTime} min </p>
                             </div>
                             <div className = "time-display">
-                            <img className = "diet-logo" src = "Images/diet.png" alt = "time icon"></img>
+                            <img className = "diet-logo" src = "Images/diet.png" alt = "diet icon"></img>
                             <p className = "card-icon-text">test</p>
                             </div>
                         </div>

@@ -1,7 +1,7 @@
 import React, {useState, useRef } from 'react';
 import { useInfiniteScrollHook } from 'use-infinite-scroll-hook/lib';
 import {Link} from 'react-router-dom';
-import {RecipeContext} from "./Main"
+import {RecipeContext} from "./Main";
 
 
 
@@ -39,7 +39,7 @@ function Results(props) {
                  to= {{
                  pathname:'/recipe',
                  activeClassName:"recipe-card", 
-                 key:{index},
+                 key:{recipeItem},
                  state:{recipeImage: recipeItem.image,
                         recipeTitle: recipeItem.title,
                         recipeTime: recipeItem.readyInMinutes,
@@ -58,7 +58,7 @@ function Results(props) {
                             <p className = "card-icon-text">{recipeItem.readyInMinutes} min </p>
                             </div>
                             <div className = "time-display">
-                            <img className = "diet-logo" src = "Images/diet.png" alt = "time icon"></img>
+                            <img className = "diet-logo" src = "Images/diet.png" alt = "diet icon"></img>
                             <p className = "card-icon-text">test</p>
                             </div>
                         </div>

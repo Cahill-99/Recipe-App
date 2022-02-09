@@ -156,7 +156,8 @@ background-color: grey;
   justify-content:center;
   align-items:flex-start;
   flex-direction:column;
-  margin-left:15%;
+  margin-left:auto;
+  margin-right:auto;
 
 }
 h2 {
@@ -911,3 +912,57 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+
+
+/*                           MEDIA QUERIES                       */
+
+
+
+@media screen and (max-width: 1220px){
+  .diet-dark{
+    background-color:#DC8D09;
+    display:flex;
+    min-width: 25vw;
+    height:4.58vh;
+    border-top-right-radius:50px;
+    border-bottom-right-radius:50px;
+    align-items:center;
+    justify-content:space-evenly;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .recipe-display{
+    min-width:400px;
+  }
+  .recipe-card{
+    max-width:240px;
+  }
+  .recipe-card{
+    font-size:16px;
+  }
+}
+
+@media screen and (max-width: 950px) {
+  .green-instructions{
+    font-size:18px;
+  }
+  h4{
+    font-size:28px;
+    margin-top:20%;
+  }
+  .green-upper-wrapper{
+    padding-left:20px;
+    padding-right:20px;
+  }
+  .ingredients-list{
+    font-size:15px;
+  }
+
+  .instructions-list{
+    font-size:15px;
+  }
+}
+
+
