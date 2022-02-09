@@ -916,6 +916,7 @@ code {
 
 
 /*                           MEDIA QUERIES                       */
+/*                            DESKTOP                            */
 
 
 
@@ -966,3 +967,145 @@ code {
 }
 
 
+/*                            MOBILE                            */
+
+
+@media screen and (max-width: 670px) {
+  .wrapper{
+    display: grid;
+    height:100vh;
+    grid-template-columns:
+    [col-start] 2fr
+    [col-2] 2fr
+    [col-3] 7fr
+    [col-4] 7fr
+    [col-5] 7fr
+    [col-6] 7fr
+    [col-7] 7fr
+    [col-8] 7fr
+    [col-9] 3fr
+    [col-10] 3fr
+    [col-11] 7fr
+    [col-12] 7fr
+    [col-13] 7fr
+    [col-14] 7fr
+    [col-end];
+
+    grid-template-rows: 
+    4fr
+    5fr
+    5fr
+    5fr
+    5fr
+    5fr
+    5fr 
+    ;
+
+    grid-template-areas: 
+    ". . logo logo . . . . . . . . . ."
+    ". . bw bw bw bw bw bw bw bw bw bw bw bw"
+    ". . bw bw bw bw bw bw bw bw bw bw bw bw"
+    ". . bw bw bw bw bw bw bw bw bw bw bw bw"
+    ". . bw bw bw bw bw bw bw bw bw bw bw bw"
+    ". . bw bw bw bw bw bw bw bw bw bw bw bw"
+    ". . bw bw bw bw bw bw bw bw bw bw bw bw"
+    ;
+  }
+
+  .base-wrapper {
+    display: block;
+    grid-area:bw;
+    height: 100 vh;
+  
+    grid-template-columns:
+    [col-start] 2fr
+    [col-2] 7fr
+    [col-3] 7fr
+    [col-4] 7fr
+    [col-5] 7fr
+    [col-6] 7fr
+    [col-7] 7fr
+    [col-8] 7fr
+    [col-9] 3fr
+    [col-10] 3fr
+    [col-11] 7fr
+    [col-12] 7fr
+    [col-13] 7fr
+    [col-14] 7fr
+    [col-end];
+  
+    grid-template-rows: 
+    4fr
+    5fr
+    5fr
+    5fr
+    5fr
+    5fr
+    5fr 
+    ;
+  
+    grid-template-areas: 
+    "wb wb wb wb wb wb wb wb wb wb wb wb wb wb"
+    "wb wb wb wb wb wb wb wb wb wb wb wb wb wb"
+    "wb wb wb wb wb wb wb wb wb wb wb wb wb wb"
+    "wb wb wb wb wb wb wb wb wb wb wb wb wb wb"
+    "wb wb wb wb wb wb wb wb wb wb wb wb wb wb"
+    "wb wb wb wb wb wb wb wb wb wb wb wb wb wb"
+    "wb wb wb wb wb wb wb wb wb wb wb wb wb wb"
+    ;
+  
+  }
+
+  .white-block {
+    background-color: white;
+    grid-area:wb;
+    height: 100%;
+    width: 100%;
+    margin:0;
+    border-top-left-radius: 20px;
+    display: grid;
+    
+    grid-template-rows:
+    12fr
+    10fr;
+    
+    grid-template-columns:
+    [col-start] 1fr
+    [col-end];
+    
+    grid-template-areas:
+    "gb"
+    "textb"
+    "textb"
+    ;
+    }
+
+    .text-block{
+      align-items:center;
+    }
+
+    .green-block-landing{
+      border-bottom-left-radius: 20px;
+      padding-bottom:2%;
+    }
+
+    .photo-block{
+      border-bottom-left-radius: 20px;
+    }
+
+    h2{
+      font-size:30px;
+      text-align: center;
+    }
+
+    .landing-text{
+      font-size:19px;
+      line-height:normal;
+      text-align: center;
+    }
+
+    .start-link{
+      width: 70%;
+      height: 14%;
+    }
+}
