@@ -1,6 +1,7 @@
 import React from 'react';
 import Filters from './Filters';
 import Results from './Results';
+import MobileWrap from './MobileWrap'
 
 
 
@@ -8,7 +9,7 @@ import Results from './Results';
 
 function Display(props) {
 
-
+    
 
 
 
@@ -16,6 +17,8 @@ function Display(props) {
         return (
 
             <div className = "blue-block-main">
+
+                <MobileWrap recipes={props.recipes}/>
                 
                 <Results recipes={props.recipes}/>
 
