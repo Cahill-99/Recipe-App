@@ -9,7 +9,7 @@ function App() {
     return (
       <Router basename='/Recipe-App'>
       <div className = "wrapper">
-        <img className = "logo" src = "Images/Smart-chef-logo.png" alt = "Smart Chef Logo"></img>
+        <img className = "logo" src = "img/Smart-chef-logo.png" alt = "Smart Chef Logo"></img>
         <HashRouter>
           <Route path="/" exact component={Landing}/>
           <Route path="/main" exact component={Main}/>
