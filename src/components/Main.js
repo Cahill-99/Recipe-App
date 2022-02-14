@@ -9,14 +9,38 @@ export let RecipeContext = React.createContext();
 function Main() {
 
 
-    const [glutenFree,setGlutenFree] = useState(false)
-    const [vegetarian,setVegetarian] = useState(false)
-    const [glutenFreeColor,setGlutenFreeColor] = useState("")
-    const [vegetarianColor,setVegetarianColor] = useState("")
-    const [search,setSearch] = useState("")
+    const [glutenFree,setGlutenFree] = useState(() => {
+        const saved = localStorage.getItem("glutenFree");
+        const initialValue = saved;
+        return initialValue || "";
+    })
+    const [vegetarian,setVegetarian] = useState(() => {
+        const saved = localStorage.getItem("vegetarian");
+        const initialValue = saved;
+        return initialValue || "";
+    })
+    const [glutenFreeColor,setGlutenFreeColor] = useState(() => {
+        const saved = localStorage.getItem("glutenFreeColor");
+        const initialValue = saved;
+        return initialValue || "";
+    })
+    const [vegetarianColor,setVegetarianColor] = useState(() => {
+        const saved = localStorage.getItem("vegetarianColor");
+        const initialValue = saved;
+        return initialValue || "";
+    })
+    const [search,setSearch] = useState(() => {
+        const saved = localStorage.getItem("searchString");
+        const initialValue = saved;
+        return initialValue || "";
+    })
     const [recipes,setRecipes] = useState("")
     const [dropdown,setDropdown] = useState("none")
-    const [timeFilter,setTimeFilter] = useState("")
+    const [timeFilter,setTimeFilter] = useState(() => {
+        const saved = localStorage.getItem("timeFilter");
+        const initialValue = saved;
+        return initialValue || "";
+    })
 
 
     //FETCH RECIPES
@@ -73,6 +97,7 @@ function Main() {
     const searchStringAdd = (newString) => {
         setSearch(newString)
         console.log(newString)
+        localStorage.setItem("searchString",newString)
     }
     
     const searchStringRemove = (ingredient) => {
@@ -108,13 +133,14 @@ function Main() {
     }
     const handleTime = (time) => {
         setTimeFilter(`&maxReadyTime=${time}`)
+        localStorage.setItem("timeFilter",time)
         toggleTimeDropdown();
         console.log(time)
         
     }
 
 
-    
+
 
 
     //Diet Filters
@@ -124,11 +150,15 @@ function Main() {
         let glutenStatus=glutenFree;
         if(glutenStatus===false) {
             setGlutenFree(true)
+            localStorage.setItem("glutenFree",true)
             setGlutenFreeColor("white")
+            localStorage.setItem("glutenFreeColor","white")
             glutenStatus=true
         } else {
             setGlutenFree(false)
+            localStorage.setItem("glutenFree",false)
             setGlutenFreeColor("")
+            localStorage.setItem("glutenFreeColor","")
             glutenStatus=false
         }
         console.log(glutenStatus)
@@ -141,11 +171,15 @@ function Main() {
         let vegStatus=vegetarian;
         if(vegStatus===false) {
             setVegetarian(true)
+            localStorage.setItem("vegetarian",true)
             setVegetarianColor("white")
+            localStorage.setItem("vegetariancolor","white")
             vegStatus=true
         } else {
             setVegetarian(false)
+            localStorage.setItem("vegetarian",false)
             setVegetarianColor("")
+            localStorage.setItem("vegetariancolor","")
             vegStatus=false
         }
         console.log(vegStatus);

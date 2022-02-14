@@ -8,7 +8,11 @@ function Ingredients(props) {
 
 
     const [suggestions,setSuggestions] = useState([])
-    const [list,setList] = useState([])
+    const [list,setList] = useState(() => {
+        const saved = localStorage.getItem("list");
+        const initialValue = JSON.parse(saved);
+        return initialValue || "";
+      });
     const [inputValue,setInputValue] = useState('')
     const [timer,setTimer]  = useState('')
 
@@ -46,6 +50,7 @@ function Ingredients(props) {
         let ingredientsList = list.concat([selected]);
         setSuggestions("");
         setList(ingredientsList);
+        localStorage.setItem("list",ingredientsList);
         setInputValue("");
         searchFocus();
 
