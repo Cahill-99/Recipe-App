@@ -24,12 +24,12 @@ useEffect(()=>{
     console.log(shownIngredients)
     console.log(shownInstructions)
 },[shownImage,shownTitle,shownTime,shownInstructions,shownIngredients])
-
+    console.log("check 1");
     return (
         <div className="section-wrapper">
             <div className="rp-green">
                 <Link to='/main'>
-                    <img src = "Images/backarrow.png" className = "back-arrow" alt = "back arrow"></img>
+                    <img src = {process.env.PUBLIC_URL +'img/backarrow.png'} className = "back-arrow" alt = "back arrow"></img>
                 </Link>
             </div>
             <div className="rp-blue">
@@ -42,11 +42,11 @@ useEffect(()=>{
                         </div>
                         <div className = "recipe-card-icon-bar">
                             <div className = "time-display">
-                            <img className = "clock-logo" src = "Images/clock.png" alt = "time icon"></img>
+                            <img className = "clock-logo" src = {process.env.PUBLIC_URL +'img/clock.png'} alt = "time icon"></img>
                             <p className = "card-icon-text">{shownTime} min </p>
                             </div>
                             <div className = "time-display">
-                            <img className = "diet-logo" src = "Images/diet.png" alt = "diet icon"></img>
+                            <img className = "diet-logo" src = {process.env.PUBLIC_URL +'img/diet.png'} alt = "diet icon"></img>
                             <p className = "card-icon-text">test</p>
                             </div>
                         </div>

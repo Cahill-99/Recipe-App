@@ -18,7 +18,7 @@ function Filters(props) {
                             </p>
                         </div>
                         <div className = "time-dark" onClick={()=> props.toggleTimeDropdown()}>
-                        <img className = "filter-arrow"  src = "Images/filterarrow.png" alt = "drop down arrow"></img>
+                        <img className = "filter-arrow"  src = {process.env.PUBLIC_URL +'img/filterarrow.png'} alt = "drop down arrow"></img>
                         </div>
                     </div>
                     <div className = "time-dropdown"

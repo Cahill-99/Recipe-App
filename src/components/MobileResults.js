@@ -54,11 +54,11 @@ function MobileResults(props) {
                         </div>
                         <div className = "recipe-card-icon-bar">
                             <div className = "time-display">
-                            <img className = "clock-logo" src = "Images/clock.png" alt = "time icon"></img>
+                            <img className = "clock-logo" src = {process.env.PUBLIC_URL +'img/clock.png'} alt = "time icon"></img>
                             <p className = "card-icon-text">{recipeItem.readyInMinutes} min </p>
                             </div>
                             <div className = "time-display">
-                            <img className = "diet-logo" src = "Images/diet.png" alt = "diet icon"></img>
+                            <img className = "diet-logo" src = {process.env.PUBLIC_URL +'img/diet.png'} alt = "diet icon"></img>
                             <p className = "card-icon-text">test</p>
                             </div>
                         </div>
@@ -71,9 +71,9 @@ function MobileResults(props) {
 
 
 
-        {contextData.length === 0 && (
+        {!contextData && (
 
-            <img className = "placeholder-plate"  src = "Images/plate.png" alt = "plate with fork"></img>
+            <img className = "placeholder-plate"  src = {process.env.PUBLIC_URL +'img/plate.png'} alt = "plate with fork"></img>
 
             )}
 
