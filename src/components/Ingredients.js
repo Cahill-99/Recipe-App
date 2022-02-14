@@ -104,7 +104,7 @@ function Ingredients(props) {
                     <div className = "green-info-wrapper">
                         {suggestions.length === 0 && list.length === 0 &&(
                         <div className = "green-instructions-wrapper">
-                        <img className = "green-arrow"  src = {process.env.PUBLIC_URL +'img/greenarrow.png'} alt = "up arrow"></img>
+                        <img className = "green-arrow"  src = {process.env.PUBLIC_URL +'/img/greenarrow.png'} alt = "up arrow"></img>
                         <p className = "green-instructions">Add an ingredient to begin your search</p>
 
                         </div>

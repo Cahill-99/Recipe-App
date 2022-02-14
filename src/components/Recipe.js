@@ -29,7 +29,7 @@ useEffect(()=>{
         <div className="section-wrapper">
             <div className="rp-green">
                 <Link to='/main'>
-                    <img src = {process.env.PUBLIC_URL +'img/backarrow.png'} className = "back-arrow" alt = "back arrow"></img>
+                    <img src = {process.env.PUBLIC_URL +'/img/backarrow.png'} className = "back-arrow" alt = "back arrow"></img>
                 </Link>
             </div>
             <div className="rp-blue">
@@ -42,11 +42,11 @@ useEffect(()=>{
                         </div>
                         <div className = "recipe-card-icon-bar">
                             <div className = "time-display">
-                            <img className = "clock-logo" src = {process.env.PUBLIC_URL +'img/clock.png'} alt = "time icon"></img>
+                            <img className = "clock-logo" src = {process.env.PUBLIC_URL +'/img/clock.png'} alt = "time icon"></img>
                             <p className = "card-icon-text">{shownTime} min </p>
                             </div>
                             <div className = "time-display">
-                            <img className = "diet-logo" src = {process.env.PUBLIC_URL +'img/diet.png'} alt = "diet icon"></img>
+                            <img className = "diet-logo" src = {process.env.PUBLIC_URL +'/img/diet.png'} alt = "diet icon"></img>
                             <p className = "card-icon-text">test</p>
                             </div>
                         </div>
@@ -58,7 +58,7 @@ useEffect(()=>{
                                 <div className = "ingredients-list-wrapper">
                                     {shownIngredients.map((ingredient) => {
                                         return  (
-                                                <li key={ingredient} className = "ingredients-list">
+                                                <li key={ingredient.id} className = "ingredients-list">
                                                     {ingredient.original}
                                                 </li>
 
@@ -73,7 +73,7 @@ useEffect(()=>{
                                     <ol>
                                         {shownInstructions.map((instructions) => {
                                             return (
-                                                <li className = "instructions-list">
+                                                <li key={instructions.number} className = "instructions-list">
                                                     
                                                     {instructions.step}
                                                 </li>

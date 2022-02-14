@@ -25,46 +25,41 @@ function Results(props) {
     
     useInfiniteScrollHook(targetContainer, loadData);
 
-    return (
-        
-        
+    return (   
     <div className = "white-block-main" ref = {targetContainer}>
-
-
-
-
         {contextData && contextData.slice(0,recipeLimit).map((recipeItem, index) => {
             return  (
-                <Link
-                 to= {{
-                 pathname:'/recipe',
-                 activeClassName:"recipe-card", 
-                 key:{recipeItem},
-                 state:{recipeImage: recipeItem.image,
-                        recipeTitle: recipeItem.title,
-                        recipeTime: recipeItem.readyInMinutes,
-                        ingredients: recipeItem.extendedIngredients,
-                        instructions: recipeItem.analyzedInstructions
-                        }}}>
-                    <div className = "recipe-card" key = {index}>
+                <div className = "linkWrapper" key = {recipeItem.id}>
+                    <Link
+                    to= {{
+                    pathname:'/recipe',
+                    activeClassName:"recipe-card", 
+                    key:{recipeItem},
+                    state:{recipeImage: recipeItem.image,
+                            recipeTitle: recipeItem.title,
+                            recipeTime: recipeItem.readyInMinutes,
+                            ingredients: recipeItem.extendedIngredients,
+                            instructions: recipeItem.analyzedInstructions
+                            }}}>
+                        <div className = "recipe-card" key = {recipeItem.id}>
 
-                        <img className = "recipe-image" src = {recipeItem.image} alt = {recipeItem.title}></img>
-                        <div className = "recipe-card-title-bar">
-                            <p key={index} className = "card-text">{recipeItem.title}</p>
-                        </div>
-                        <div className = "recipe-card-icon-bar">
-                            <div className = "time-display">
-                            <img className = "clock-logo" src = {process.env.PUBLIC_URL +'img/clock.png'} alt = "time icon"></img>
-                            <p className = "card-icon-text">{recipeItem.readyInMinutes} min </p>
+                            <img className = "recipe-image" src = {recipeItem.image} alt = {recipeItem.title}></img>
+                            <div className = "recipe-card-title-bar">
+                                <p key={recipeItem.id} className = "card-text">{recipeItem.title}</p>
                             </div>
-                            <div className = "time-display">
-                            <img className = "diet-logo" src = {process.env.PUBLIC_URL +'img/diet.png'} alt = "diet icon"></img>
-                            <p className = "card-icon-text">test</p>
+                            <div className = "recipe-card-icon-bar">
+                                <div className = "time-display">
+                                <img className = "clock-logo" src = {process.env.PUBLIC_URL +'/img/clock.png'} alt = "time icon"></img>
+                                <p className = "card-icon-text">{recipeItem.readyInMinutes} min </p>
+                                </div>
+                                <div className = "time-display">
+                                <img className = "diet-logo" src = {process.env.PUBLIC_URL +'/img/diet.png'} alt = "diet icon"></img>
+                                <p className = "card-icon-text">test</p>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                 </Link>
-
+                    </Link>
+                 </div>
             )}
             
         )}
@@ -73,7 +68,7 @@ function Results(props) {
 
         {!contextData && (
 
-            <img className = "placeholder-plate"  src = "Images/plate.png" alt = "plate with fork"></img>
+            <img className = "placeholder-plate"  src = {process.env.PUBLIC_URL +'/img/plate.png'} alt = "plate with fork"></img>
 
             )}
 
