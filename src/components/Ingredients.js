@@ -80,6 +80,7 @@ function Ingredients(props) {
         const updatedList = listCopy.filter(item => item !== ingredient);
 
         setList(updatedList)
+        localStorage.setItem("list",JSON.stringify(updatedList));
 
         //remove clicked ingredient from search state
 
@@ -89,6 +90,7 @@ function Ingredients(props) {
 
     const resetSearch = () => { //Remove all ingredients
         setList([]);
+        localStorage.setItem("list",JSON.stringify([]));
         props.searchStringReset();
         
 
@@ -105,7 +107,7 @@ function Ingredients(props) {
                         </input>
                     </form>
                     <div className = "green-info-wrapper">
-                        {suggestions.length === 0 && list.length === 0 &&(
+                        {suggestions.length === 0 && !localStorage.getItem("list") &&(
                         <div className = "green-instructions-wrapper">
                         <img className = "green-arrow"  src = {process.env.PUBLIC_URL +'/img/greenarrow.png'} alt = "up arrow"></img>
                         <p className = "green-instructions">Add an ingredient to begin your search</p>
@@ -121,7 +123,7 @@ function Ingredients(props) {
                             })}
                         </div>
                         )}
-                        {list.length !== 0 &&(
+                        {localStorage.getItem("list") && (
                             <div className="ing-list">
                                 {JSON.parse(localStorage.getItem("list")).map(ing => {
                                     return (
@@ -135,7 +137,7 @@ function Ingredients(props) {
                         )}
                     </div>
                 </div>
-                {list.length !== 0 &&(
+                {JSON.parse(localStorage.getItem("list")) !== [] &&(
                     <button className = "reset-button" onClick={() => resetSearch()}>Reset</button>
                 )}
 
