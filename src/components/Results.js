@@ -54,7 +54,7 @@ function Results(props) {
                                 </div>
                                 <div className = "time-display">
                                 <img className = "diet-logo" src = {process.env.PUBLIC_URL +'/img/diet.png'} alt = "diet icon"></img>
-                                <p className = "card-icon-text">test</p>
+                                <p className = "card-icon-text"></p>
                                 </div>
                             </div>
                         </div>
