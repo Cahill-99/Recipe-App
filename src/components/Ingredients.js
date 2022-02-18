@@ -107,7 +107,7 @@ function Ingredients(props) {
                         </input>
                     </form>
                     <div className = "green-info-wrapper">
-                        {suggestions.length === 0 && !localStorage.getItem("list") &&(
+                        {suggestions.length === 0 && list.length === 0 &&(
                         <div className = "green-instructions-wrapper">
                         <img className = "green-arrow"  src = {process.env.PUBLIC_URL +'/img/greenarrow.png'} alt = "up arrow"></img>
                         <p className = "green-instructions">Add an ingredient to begin your search</p>
@@ -137,7 +137,7 @@ function Ingredients(props) {
                         )}
                     </div>
                 </div>
-                {JSON.parse(localStorage.getItem("list")) !== [] &&(
+                {list.length !== 0 &&(
                     <button className = "reset-button" onClick={() => resetSearch()}>Reset</button>
                 )}
 
