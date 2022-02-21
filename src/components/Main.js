@@ -10,9 +10,7 @@ function Main() {
 
 
     const [glutenFree,setGlutenFree] = useState(() => {
-        const saved = localStorage.getItem("glutenFree");
-        const initialValue = saved;
-        return initialValue || "";
+        return localStorage.getItem("glutenFree") || false;
     })
     const [vegetarian,setVegetarian] = useState(() => {
         const saved = localStorage.getItem("vegetarian");

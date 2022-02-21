@@ -11,6 +11,7 @@ function Ingredients(props) {
     const [list,setList] = useState([])
     const [inputValue,setInputValue] = useState('')
     const [timer,setTimer]  = useState('')
+    const [activeList,setActiveList] = useState(false)
 
 
     const handleChange = e => {
@@ -46,6 +47,8 @@ function Ingredients(props) {
         let ingredientsList = list.concat([selected]);
         setSuggestions("");
         setList(ingredientsList);
+        setActiveList(true);
+        localStorage.setItem("activeList","true");
         console.log(list);
 
         localStorage.setItem("list",JSON.stringify(ingredientsList));
@@ -80,7 +83,12 @@ function Ingredients(props) {
         const updatedList = listCopy.filter(item => item !== ingredient);
 
         setList(updatedList)
+        if (updatedList.length === 0) {
+            setActiveList(false);
+            localStorage.setItem("activeList","false");
+        }
         localStorage.setItem("list",JSON.stringify(updatedList));
+        console.log(updatedList)
 
         //remove clicked ingredient from search state
 
@@ -92,6 +100,8 @@ function Ingredients(props) {
         setList([]);
         localStorage.setItem("list",JSON.stringify([]));
         props.searchStringReset();
+        setActiveList(false);
+        localStorage.setItem("activeList","false");
         
 
     }
@@ -107,7 +117,7 @@ function Ingredients(props) {
                         </input>
                     </form>
                     <div className = "green-info-wrapper">
-                        {suggestions.length === 0 && list.length === 0 &&(
+                        {suggestions.length === 0 && localStorage.getItem("activeList") !== "true" &&(
                         <div className = "green-instructions-wrapper">
                         <img className = "green-arrow"  src = {process.env.PUBLIC_URL +'/img/greenarrow.png'} alt = "up arrow"></img>
                         <p className = "green-instructions">Add an ingredient to begin your search</p>
@@ -137,7 +147,7 @@ function Ingredients(props) {
                         )}
                     </div>
                 </div>
-                {list.length !== 0 &&(
+                {list.length !== 0 && localStorage.getItem("list") !== null &&(
                     <button className = "reset-button" onClick={() => resetSearch()}>Reset</button>
                 )}
 
