@@ -142,7 +142,7 @@ function Ingredients(props) {
                         )}
                     </div>
                 </div>
-                {list.length !== 0 && localStorage.getItem("list") !== null &&(
+                {localStorage.getItem("activeList") === "true" &&(
                     <button className = "reset-button" onClick={() => resetSearch()}>Reset</button>
                 )}
 

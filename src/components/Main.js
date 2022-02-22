@@ -13,9 +13,7 @@ function Main() {
         return localStorage.getItem("glutenFree") || false;
     })
     const [vegetarian,setVegetarian] = useState(() => {
-        const saved = localStorage.getItem("vegetarian");
-        const initialValue = saved;
-        return initialValue || "";
+        return localStorage.getItem("vegetarian") || false;
     })
     const [glutenFreeColor,setGlutenFreeColor] = useState(() => {
         const saved = localStorage.getItem("glutenFreeColor");
@@ -32,12 +30,12 @@ function Main() {
         const initialValue = saved;
         return initialValue || "";
     })
-    const [recipes,setRecipes] = useState("")
-    const [dropdown,setDropdown] = useState("none")
+    const [recipes,setRecipes] = useState("");
+    const [dropdown,setDropdown] = useState("none");
+
     const [timeFilter,setTimeFilter] = useState(() => {
-        const saved = localStorage.getItem("timeFilter");
-        const initialValue = saved;
-        return initialValue || "";
+        return localStorage.getItem("timeFilter") || "";
+
     })
 
 
@@ -111,7 +109,7 @@ function Main() {
     }
     const handleTime = (time) => {
         setTimeFilter(`&maxReadyTime=${time}`)
-        localStorage.setItem("timeFilter",time)
+        localStorage.setItem("timeFilter","&maxReadyTime="+time)
         toggleTimeDropdown();
         console.log(time)
         
