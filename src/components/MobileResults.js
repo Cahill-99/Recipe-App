@@ -3,7 +3,7 @@ import { useInfiniteScrollHook } from 'use-infinite-scroll-hook/lib';
 import {Link} from 'react-router-dom';
 import {RecipeContext} from "./Main";
 
-function MobileResults(props) {
+function MobileResults() {
 
     let contextData = React.useContext(RecipeContext);
 

@@ -11,8 +11,6 @@ function Ingredients(props) {
     const [list,setList] = useState([])
     const [inputValue,setInputValue] = useState('')
     const [timer,setTimer]  = useState('')
-    const [activeList,setActiveList] = useState(false)
-
 
     const handleChange = e => {
 
@@ -47,7 +45,6 @@ function Ingredients(props) {
         let ingredientsList = list.concat([selected]);
         setSuggestions("");
         setList(ingredientsList);
-        setActiveList(true);
         localStorage.setItem("activeList","true");
         console.log(list);
 
@@ -84,7 +81,6 @@ function Ingredients(props) {
 
         setList(updatedList)
         if (updatedList.length === 0) {
-            setActiveList(false);
             localStorage.setItem("activeList","false");
         }
         localStorage.setItem("list",JSON.stringify(updatedList));
@@ -100,7 +96,6 @@ function Ingredients(props) {
         setList([]);
         localStorage.setItem("list",JSON.stringify([]));
         props.searchStringReset();
-        setActiveList(false);
         localStorage.setItem("activeList","false");
         
 

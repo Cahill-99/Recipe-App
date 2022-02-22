@@ -66,27 +66,7 @@ function Main() {
             setRecipes(recipesList.results)
             console.log(recipesList)
         })
-        
-        // let vegActive;
-        // let glutenActive;
 
-
-
-        // glutenFree === true ? glutenActive="&health=gluten-free" : glutenActive=""; // toggles gluten filter
-        // vegetarian === true ? vegActive="&health=vegetarian" : vegActive="";
-        // console.log("useEffect Fetch")
-        // console.log(`--time filter:${timeFilter}`)
-        // console.log(`--veg filter:${vegetarian}`)
-        // console.log(`--Gluten Filter:${glutenFree}`)
-        // console.log(`--search is:${search}`)
-
-        
-        // fetch(`https://api.edamam.com/search?q=${search}&app_id=${process.env.REACT_APP_EDAMAM_ID}&app_key=${process.env.REACT_APP_EDAMAM_KEY}${glutenActive}${vegActive}${timeFilter}&from=1&to=100`)
-        // .then((response) => response.json())
-        // .then(recipesList => {
-        //     setRecipes(recipesList.hits)
-        //     console.log(recipesList)
-        // })
 
     },[timeFilter,glutenFree,vegetarian,search])
 
@@ -143,7 +123,7 @@ function Main() {
 
     //Diet Filters
 
-    const toggleGlutenFilter = (searchInput) => {
+    const toggleGlutenFilter = () => {
         console.log("toggle")
         let glutenStatus=glutenFree;
         if(glutenStatus===false) {
@@ -164,7 +144,7 @@ function Main() {
 
     }
 
-    const toggleVegetarianFilter = (searchInput) => {
+    const toggleVegetarianFilter = () => {
         console.log("toggle")
         let vegStatus=vegetarian;
         if(vegStatus===false) {

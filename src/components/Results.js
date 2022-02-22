@@ -6,7 +6,7 @@ import {RecipeContext} from "./Main";
 
 
 
-function Results(props) {
+function Results() {
 
     let contextData = React.useContext(RecipeContext);
 
@@ -27,7 +27,7 @@ function Results(props) {
 
     return (   
     <div className = "white-block-main" ref = {targetContainer}>
-        {contextData && contextData.slice(0,recipeLimit).map((recipeItem, index) => {
+        {contextData && contextData.slice(0,recipeLimit).map((recipeItem) => {
             return  (
                 <div className = "linkWrapper" key = {recipeItem.id}>
                     <Link
