@@ -31,17 +31,28 @@ function Results() {
             return  (
                 <div className = "linkWrapper" key = {recipeItem.id}>
                     <Link
+                    
                     to= {{
                     pathname:'/recipe',
-                    activeClassName:"recipe-card", 
+                    activeClassName:"recipe-card",
                     key:{recipeItem},
                     state:{recipeImage: recipeItem.image,
                             recipeTitle: recipeItem.title,
                             recipeTime: recipeItem.readyInMinutes,
                             ingredients: recipeItem.extendedIngredients,
-                            instructions: recipeItem.analyzedInstructions
+                            instructions: recipeItem.analyzedInstructions,
+                            vegetarian: recipeItem.vegetarian,
+                            glutenFree: recipeItem.glutenFree
                             }}}>
-                        <div className = "recipe-card" key = {recipeItem.id}>
+                        <div className = "recipe-card" key = {recipeItem.id} 
+                        // onClick={() => console.log("clicked"),
+                        // localStorage.setItem("recipeImage",process.env.PUBLIC_URL +recipeItem.image),
+                        // localStorage.setItem("recipeIngredients",JSON.stringify(recipeItem.extendedIngredients)),
+                        // localStorage.setItem("recipeInstructions",JSON.stringify(recipeItem.analyzedInstructions)),
+                        // localStorage.setItem("recipeTitle",recipeItem.title),
+                        // localStorage.setItem("recipeTime",recipeItem.readyInMinutes),
+                        // console.log(recipeItem.title)}
+                        >
 
                             <img className = "recipe-image" src = {recipeItem.image} alt = {recipeItem.title}></img>
                             <div className = "recipe-card-title-bar">
@@ -52,9 +63,9 @@ function Results() {
                                 <img className = "clock-logo" src = {process.env.PUBLIC_URL +'/img/clock.png'} alt = "time icon"></img>
                                 <p className = "card-icon-text">{recipeItem.readyInMinutes} min </p>
                                 </div>
-                                <div className = "time-display">
-                                <img className = "diet-logo" src = {process.env.PUBLIC_URL +'/img/diet.png'} alt = "diet icon"></img>
-                                <p className = "card-icon-text"></p>
+                                <div className = "diet-display">
+                                {recipeItem.vegetarian === true && (<img className = "veg-logo" src = {process.env.PUBLIC_URL +'/img/Vegetarian.png'} alt = "vegetarian icon"></img>)}
+                                {recipeItem.glutenFree === true && (<img className = "gluten-logo" src = {process.env.PUBLIC_URL +'/img/Gluten.png'} alt = "gluten free icon"></img>)}
                                 </div>
                             </div>
                         </div>

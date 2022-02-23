@@ -12,18 +12,27 @@ function Recipe() {
 
 
 
-    let shownImage =location.state.recipeImage;
-    let shownTitle =location.state.recipeTitle;
-    let shownTime =location.state.recipeTime;
-    let shownIngredients =location.state.ingredients
-    let shownInstructions =location.state.instructions[0].steps
+    let shownImage = location.state.recipeImage;
+    let shownTitle = location.state.recipeTitle;
+    let shownTime = location.state.recipeTime;
+    let shownIngredients = JSON.stringify(location.state.ingredients);
+    let shownInstructions = JSON.stringify(location.state.instructions[0].steps);
+    let vegetarian = location.state.vegetarian;
+    let glutenFree = location.state.glutenFree;
 
-useEffect(()=>{
+// useEffect(()=>{
 
-    console.log(shownTitle)
-    console.log(shownIngredients)
-    console.log(shownInstructions)
-},[shownImage,shownTitle,shownTime,shownInstructions,shownIngredients])
+
+
+//     console.log(shownTitle)
+//     console.log(shownIngredients)
+//     console.log(shownInstructions)
+//     let storedImage = localStorage.setItem("storedImage",process.env.PUBLIC_URL +location.state.recipeImage);
+//     let storedIngredients = localStorage.setItem("storedIngredients",JSON.stringify(location.state.ingredients));
+//     let storedInstructions = localStorage.setItem("storedInstructions",JSON.stringify(location.state.instructions[0].steps));
+//     let storedTitle = localStorage.setItem("storedTitle",location.state.recipeTitle);
+//     let storedTime = localStorage.setItem("storedTime",location.state.recipeTime);
+// },[])
     console.log("check 1");
     return (
         <div className="section-wrapper">
@@ -36,7 +45,7 @@ useEffect(()=>{
                 <div className="rp-white">
 
                     <div className = "recipe-display">
-                        <img className = "recipe-image" src = {shownImage} alt = "recipe"></img>
+                        <img className = "recipe-image" src = {process.env.PUBLIC_URL + shownImage} alt = "recipe"></img>
                         <div className = "recipe-card-title-bar">
                             <p className = "card-text">{shownTitle}</p>
                         </div>
@@ -46,8 +55,8 @@ useEffect(()=>{
                             <p className = "card-icon-text">{shownTime} min </p>
                             </div>
                             <div className = "time-display">
-                            <img className = "diet-logo" src = {process.env.PUBLIC_URL +'/img/diet.png'} alt = "diet icon"></img>
-                            <p className = "card-icon-text">test</p>
+                            {vegetarian === true && (<img className = "veg-logo" src = {process.env.PUBLIC_URL +'/img/Vegetarian.png'} alt = "vegetarian icon"></img>)}
+                            {glutenFree === true && (<img className = "gluten-logo" src = {process.env.PUBLIC_URL +'/img/Gluten.png'} alt = "gluten free icon"></img>)}
                             </div>
                         </div>
                         </div>
@@ -56,7 +65,7 @@ useEffect(()=>{
                                 <h3 className = "ingredients-title">Ingredients</h3>
                                 
                                 <div className = "ingredients-list-wrapper">
-                                    {shownIngredients.map((ingredient) => {
+                                    {JSON.parse(shownIngredients).map((ingredient) => {
                                         return  (
                                                 <li key={ingredient.id} className = "ingredients-list">
                                                     {ingredient.original}
@@ -71,7 +80,7 @@ useEffect(()=>{
 
                                 <div className = "instructions-list-wrapper">
                                     <ol>
-                                        {shownInstructions.map((instructions) => {
+                                        {JSON.parse(shownInstructions).map((instructions) => {
                                             return (
                                                 <li key={instructions.number} className = "instructions-list">
                                                     

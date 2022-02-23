@@ -550,8 +550,18 @@ a {
   height:22px;
 }
 
-.diet-logo{
+.veg-logo{
   height:25px;
+  margin-right:10px;
+}
+
+.gluten-logo{
+  height:25px;
+}
+.diet-display{
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 
