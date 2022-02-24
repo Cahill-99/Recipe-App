@@ -1228,16 +1228,69 @@ code {
     [col-end];
     grid-template-rows: 10fr 10fr 10fr 10fr 10fr 10fr;
     grid-template-areas:
+        "a a a a a a a a a"
+        "a a a a a a a a a"
+        "a a a a a a a a a"
+        "a a a a a a a a a"
+        "a a a a a a a a a"
+        "a a a a a a a a a";
+  }
+
+  .results-wrapper{
+    display:grid;
+    grid-area:a;
+    grid-template-columns: 
+    [col-start] 1fr 
+    [col-1] 0.5fr 
+    [col-2] 7fr 
+    [col-3] 7fr 
+    [col-4] 7fr 
+    [col-5] 7fr 
+    [col-6] 7fr 
+    [col-7] 0.5fr 
+    [col-8] 1fr 
+    [col-end];
+    grid-template-rows: 10fr 10fr 10fr 10fr 10fr 10fr;
+    grid-template-areas:
         "gm gm wm wm wm wm wm wm wm"
         "gm gm wm wm wm wm wm wm wm"
         "gm gm wm wm wm wm wm wm wm"
         "gm gm wm wm wm wm wm wm wm"
         "gm gm wm wm wm wm wm wm wm"
         "gm gm wm wm wm wm wm wm wm";
-    grid-area:mw
   }
 
+  .ingredients-menu{
+    background-color: #77D18C;
+    height:100%;
+    width:100%;
+    grid-area:a;
+    border-top-right-radius: 20px;
+  }
 
+  h6{
+    font:32px Montserrat, sans-serif;
+    font-weight:500;
+    color:#FFF4DA;
+    border-bottom: 3px solid #FFF4DA;
+    min-width:78%;
+    margin:0;
+    margin-top: 2vh;
+    line-height: 60px;
+  }
+  .back-arrow-ing{
+    margin-top: 29px;
+    height:35px;
+    position:absolute;
+    right:10vw;
+    z-index:1;
+  }
+
+  .top-bar{
+    display:flex;
+    flex-direction:row;
+    justify-content: center;
+  }
 
   .white-block-main{
     display:none;
@@ -1271,6 +1324,9 @@ code {
     background-color:#77D18C;
     border-top-right-radius: 20px;
     border-bottom-right-radius: 20px;
+    display:flex;
+    justify-content: center;
+    align-items: center;
   }
   .mobile-filter-wrapper{
     background-color:white;
@@ -1290,11 +1346,25 @@ code {
     width:49.3%;
     border-top-right-radius: 20px;
     bottom:0px;
+    display:flex;
+    justify-content: center;
+    align-items: center;
   }
   .mobile-diet-filter{
     background-color:#DC8D09;
     height:50px;
     width:49.3%;
     border-top-left-radius: 20px;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+  }
+  h3{
+    font: 30px Montserrat, sans-serif;
+    color: #FFF4DA;
+    margin:0;
+  }
+  .mobile-plus{
+    height:40px;
   }
 }

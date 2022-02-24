@@ -18,7 +18,13 @@ function Display(props) {
 
             <div className = "blue-block-main">
 
-                <MobileWrap recipes={props.recipes}/>
+                <MobileWrap recipes={props.recipes}
+                glutenFree={props.glutenFree}
+                vegetarian={props.vegetarian}
+                search={props.search}
+                searchStringAdd={props.searchStringAdd}
+                searchStringRemove={props.searchStringRemove}
+                searchStringReset={props.searchStringReset}/>
                 
                 <Results recipes={props.recipes}/>
 

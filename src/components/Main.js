@@ -184,6 +184,13 @@ function Main() {
                 dropdown={dropdown}
                 handleTime={handleTime}
                 recipes={recipes}
+
+                glutenFree={glutenFree}
+                vegetarian={vegetarian}
+                search={search}
+                searchStringAdd={searchStringAdd}
+                searchStringRemove={searchStringRemove}
+                searchStringReset={searchStringReset}
                 />
             </div>
         </RecipeContext.Provider>
