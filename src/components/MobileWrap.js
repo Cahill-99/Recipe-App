@@ -19,7 +19,8 @@ const expandIngredients = () => {
                 search={props.search}
                 searchStringAdd={props.searchStringAdd}
                 searchStringRemove={props.searchStringRemove}
-                searchStringReset={props.searchStringReset}/>)}
+                searchStringReset={props.searchStringReset}
+                expandIngredients={expandIngredients}/>)}
             {ingredientsStatus === false && (<div className = "results-wrapper"><MobileResults/>
 
             {ingredientsStatus === false && (<div className = "green-mobile">
