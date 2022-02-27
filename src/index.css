@@ -1411,7 +1411,7 @@ code {
     align-items: flex-end;
   }
   .mobile-time-filter{
-    background-color:#DC8D09;
+    background-color:#EF990A;
     height:50px;
     width:49.3%;
     border-top-right-radius: 20px;
@@ -1420,8 +1420,19 @@ code {
     justify-content: center;
     align-items: center;
   }
+  .mobile-time-filter-expanded{
+    background-color:#EF990A;
+    height:20vh;
+    width:49.3%;
+    border-top-right-radius: 20px;
+    bottom:0px;
+    display:flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+  }
   .mobile-diet-filter{
-    background-color:#DC8D09;
+    background-color:#EF990A;
     height:50px;
     width:49.3%;
     border-top-left-radius: 20px;
@@ -1429,6 +1440,34 @@ code {
     justify-content: center;
     align-items: center;
   }
+
+  .mobile-diet-filter-expanded{
+    background-color:#EF990A;
+    height:20vh;
+    width:49.3%;
+    border-top-left-radius: 20px;
+    display:flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+  }
+  .mobile-button-wrapper{
+    background-color: #DC8D09;
+    width:100%;
+    height: 14vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+
+  .mobile-filter-option{
+    font: 25px Montserrat, sans-serif;
+    color: #FFF4DA;
+    background-color:transparent;
+    border:none;
+  }
+
   h3{
     font: 30px Montserrat, sans-serif;
     color: #FFF4DA;

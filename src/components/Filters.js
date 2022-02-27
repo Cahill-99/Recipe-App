@@ -46,7 +46,7 @@ function Filters(props) {
                     <div className = "diet-dark">
                         <div className = "filter-wrapper">
                             <button className = "gluten-btn"  
-                            onClick={()=> props.toggleGlutenFilter(props.searchState)} 
+                            onClick={()=> props.toggleGlutenFilter()} 
                             style={{backgroundColor: props.glutenFreeColor}}>
 
                             </button>
@@ -54,7 +54,7 @@ function Filters(props) {
                         </div>
                         <div className = "filter-wrapper">
                             <button className = "veg-btn"
-                            onClick={()=> props.toggleVegetarianFilter(props.searchState)}
+                            onClick={()=> props.toggleVegetarianFilter()}
                             style={{backgroundColor: props.vegetarianColor}}>
                                 
                             </button>

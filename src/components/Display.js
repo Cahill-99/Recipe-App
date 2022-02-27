@@ -24,7 +24,10 @@ function Display(props) {
                 search={props.search}
                 searchStringAdd={props.searchStringAdd}
                 searchStringRemove={props.searchStringRemove}
-                searchStringReset={props.searchStringReset}/>
+                searchStringReset={props.searchStringReset}
+                toggleGlutenFilter={props.toggleGlutenFilter}
+                toggleVegetarianFilter={props.toggleVegetarianFilter}
+                handleTime={props.handleTime}/>
                 
                 <Results recipes={props.recipes}/>
 
