@@ -12,13 +12,22 @@ function Recipe() {
 
 
 
-    let shownImage = location.state.recipeImage;
-    let shownTitle = location.state.recipeTitle;
-    let shownTime = location.state.recipeTime;
-    let shownIngredients = JSON.stringify(location.state.ingredients);
-    let shownInstructions = JSON.stringify(location.state.instructions[0].steps);
-    let vegetarian = location.state.vegetarian;
-    let glutenFree = location.state.glutenFree;
+    // let shownImage = location.state.recipeImage;
+    // let shownTitle = location.state.recipeTitle;
+    // let shownTime = location.state.recipeTime;
+    // let shownIngredients = JSON.stringify(location.state.ingredients);
+    // let shownInstructions = JSON.stringify(location.state.instructions[0].steps);
+    // let vegetarian = location.state.vegetarian;
+    // let glutenFree = location.state.glutenFree;
+
+    let shownImage = localStorage.getItem("recipeImage");
+    let shownTitle = localStorage.getItem("recipeTitle");
+    let shownTime = localStorage.getItem("recipeTime");
+    let shownIngredients = JSON.parse(localStorage.getItem("recipeIngredients"));
+    let shownInstructions = localStorage.getItem("recipeInstructions");
+    // let vegetarian = location.state.vegetarian;
+    // let glutenFree = location.state.glutenFree;
+
 
 // useEffect(()=>{
 
@@ -45,7 +54,7 @@ function Recipe() {
                 <div className="rp-white">
 
                     <div className = "recipe-display">
-                        <img className = "recipe-image" src = {process.env.PUBLIC_URL + shownImage} alt = "recipe"></img>
+                        <img className = "recipe-image" src = {shownImage} alt = "recipe"></img>
                         <div className = "recipe-card-title-bar">
                             <p className = "card-text">{shownTitle}</p>
                         </div>
@@ -55,8 +64,8 @@ function Recipe() {
                             <p className = "card-icon-text">{shownTime} min </p>
                             </div>
                             <div className = "time-display">
-                            {vegetarian === true && (<img className = "veg-logo" src = {process.env.PUBLIC_URL +'/img/Vegetarian.png'} alt = "vegetarian icon"></img>)}
-                            {glutenFree === true && (<img className = "gluten-logo" src = {process.env.PUBLIC_URL +'/img/Gluten.png'} alt = "gluten free icon"></img>)}
+                            {localStorage.getItem("vegetarian") === true && (<img className = "veg-logo" src = {process.env.PUBLIC_URL +'/img/Vegetarian.png'} alt = "vegetarian icon"></img>)}
+                            {localStorage.getItem("glutenFree") === true && (<img className = "gluten-logo" src = {process.env.PUBLIC_URL +'/img/Gluten.png'} alt = "gluten free icon"></img>)}
                             </div>
                         </div>
                         </div>
@@ -65,7 +74,7 @@ function Recipe() {
                                 <h3 className = "ingredients-title">Ingredients</h3>
                                 
                                 <div className = "ingredients-list-wrapper">
-                                    {JSON.parse(shownIngredients).map((ingredient) => {
+                                    {shownIngredients.map((ingredient) => {
                                         return  (
                                                 <li key={ingredient.id} className = "ingredients-list">
                                                     {ingredient.original}
@@ -80,7 +89,7 @@ function Recipe() {
 
                                 <div className = "instructions-list-wrapper">
                                     <ol>
-                                        {JSON.parse(shownInstructions).map((instructions) => {
+                                        {JSON.parse(shownInstructions)[0].steps.map((instructions) => {
                                             return (
                                                 <li key={instructions.number} className = "instructions-list">
                                                     
