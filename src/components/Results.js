@@ -42,17 +42,9 @@ function Results() {
                             ingredients: recipeItem.extendedIngredients,
                             instructions: recipeItem.analyzedInstructions,
                             vegetarian: recipeItem.vegetarian,
-                            glutenFree: recipeItem.glutenFree
+                            glutenFree: recipeItem.glutenFree,
                             }}}>
-                        <div className = "recipe-card" key = {recipeItem.id} 
-                        onClick={() => console.log("clicked"),
-                        localStorage.setItem("recipeImage",process.env.PUBLIC_URL +recipeItem.image),
-                        localStorage.setItem("recipeIngredients",JSON.stringify(recipeItem.extendedIngredients)),
-                        localStorage.setItem("recipeInstructions",JSON.stringify(recipeItem.analyzedInstructions)),
-                        localStorage.setItem("recipeTitle",recipeItem.title),
-                        localStorage.setItem("recipeTime",recipeItem.readyInMinutes),
-                        console.log(recipeItem.title)}
-                        >
+                        <div className = "recipe-card" key = {recipeItem.id}>
 
                             <img className = "recipe-image" src = {recipeItem.image} alt = {recipeItem.title}></img>
                             <div className = "recipe-card-title-bar">

@@ -11,37 +11,18 @@ function Recipe() {
     console.log(location.state)
 
 
-
-    // let shownImage = location.state.recipeImage;
-    // let shownTitle = location.state.recipeTitle;
-    // let shownTime = location.state.recipeTime;
-    // let shownIngredients = JSON.stringify(location.state.ingredients);
-    // let shownInstructions = JSON.stringify(location.state.instructions[0].steps);
-    // let vegetarian = location.state.vegetarian;
-    // let glutenFree = location.state.glutenFree;
-
-    let shownImage = localStorage.getItem("recipeImage");
-    let shownTitle = localStorage.getItem("recipeTitle");
-    let shownTime = localStorage.getItem("recipeTime");
-    let shownIngredients = JSON.parse(localStorage.getItem("recipeIngredients"));
-    let shownInstructions = localStorage.getItem("recipeInstructions");
-    // let vegetarian = location.state.vegetarian;
-    // let glutenFree = location.state.glutenFree;
-
-
-// useEffect(()=>{
+    if(location.state){
+        localStorage.setItem("storedImage",location.state.recipeImage);
+        localStorage.setItem("storedIngredients",JSON.stringify(location.state.ingredients));
+        localStorage.setItem("storedInstructions",JSON.stringify(location.state.instructions[0].steps));
+        localStorage.setItem("storedTitle",location.state.recipeTitle);
+        localStorage.setItem("storedTime",location.state.recipeTime);
+        localStorage.setItem("storedVeg",JSON.stringify(location.state.vegetarian));
+        localStorage.setItem("storedGluten",JSON.stringify(location.state.glutenFree));
+    }
 
 
 
-//     console.log(shownTitle)
-//     console.log(shownIngredients)
-//     console.log(shownInstructions)
-//     let storedImage = localStorage.setItem("storedImage",process.env.PUBLIC_URL +location.state.recipeImage);
-//     let storedIngredients = localStorage.setItem("storedIngredients",JSON.stringify(location.state.ingredients));
-//     let storedInstructions = localStorage.setItem("storedInstructions",JSON.stringify(location.state.instructions[0].steps));
-//     let storedTitle = localStorage.setItem("storedTitle",location.state.recipeTitle);
-//     let storedTime = localStorage.setItem("storedTime",location.state.recipeTime);
-// },[])
     console.log("check 1");
     return (
         <div className="section-wrapper">
@@ -54,18 +35,18 @@ function Recipe() {
                 <div className="rp-white">
 
                     <div className = "recipe-display">
-                        <img className = "recipe-image" src = {shownImage} alt = "recipe"></img>
+                        <img className = "recipe-image" src = {localStorage.getItem("storedImage")} alt = "recipe"></img>
                         <div className = "recipe-card-title-bar">
-                            <p className = "card-text">{shownTitle}</p>
+                            <p className = "card-text">{localStorage.getItem("storedTitle")}</p>
                         </div>
                         <div className = "recipe-card-icon-bar">
                             <div className = "time-display">
                             <img className = "clock-logo" src = {process.env.PUBLIC_URL +'/img/clock.png'} alt = "time icon"></img>
-                            <p className = "card-icon-text">{shownTime} min </p>
+                            <p className = "card-icon-text">{localStorage.getItem("storedTime")} min </p>
                             </div>
                             <div className = "time-display">
-                            {localStorage.getItem("vegetarian") === true && (<img className = "veg-logo" src = {process.env.PUBLIC_URL +'/img/Vegetarian.png'} alt = "vegetarian icon"></img>)}
-                            {localStorage.getItem("glutenFree") === true && (<img className = "gluten-logo" src = {process.env.PUBLIC_URL +'/img/Gluten.png'} alt = "gluten free icon"></img>)}
+                            {localStorage.getItem("storedVeg") === "true" && (<img className = "veg-logo" src = {process.env.PUBLIC_URL +'/img/Vegetarian.png'} alt = "vegetarian icon"></img>)}
+                            {localStorage.getItem("storedGluten") === "true" && (<img className = "gluten-logo" src = {process.env.PUBLIC_URL +'/img/Gluten.png'} alt = "gluten free icon"></img>)}
                             </div>
                         </div>
                         </div>
@@ -74,7 +55,7 @@ function Recipe() {
                                 <h3 className = "ingredients-title">Ingredients</h3>
                                 
                                 <div className = "ingredients-list-wrapper">
-                                    {shownIngredients.map((ingredient) => {
+                                    {JSON.parse(localStorage.getItem("storedIngredients")).map((ingredient) => {
                                         return  (
                                                 <li key={ingredient.id} className = "ingredients-list">
                                                     {ingredient.original}
@@ -89,7 +70,7 @@ function Recipe() {
 
                                 <div className = "instructions-list-wrapper">
                                     <ol>
-                                        {JSON.parse(shownInstructions)[0].steps.map((instructions) => {
+                                        {JSON.parse(localStorage.getItem("storedInstructions")).map((instructions) => {
                                             return (
                                                 <li key={instructions.number} className = "instructions-list">
                                                     
