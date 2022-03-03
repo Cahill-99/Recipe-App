@@ -706,12 +706,15 @@ font-weight:480;
 
 /*                                  RECIPE.JS                         */
 
-
+.rp-wrapper{
+  max-width:100vw;
+  max-height:100vh;
+  grid-area:bw;
+}
 
 .section-wrapper{
   display: grid;
-  grid-area:bw;
-  height: 100 vh;
+  max-height:100%;
 
   grid-template-columns:
   [col-start] 3.5fr
@@ -924,6 +927,14 @@ ol{
   display:none;
 }
 
+.rp-white-mobile{
+display:none;
+}
+
+.mobile-green-recipe-button{
+  display:none;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
@@ -1101,6 +1112,8 @@ code {
 
     .text-block{
       align-items:center;
+      margin-top:4vh;
+      margin-bottom:4vh;
     }
 
     .green-block-landing{
@@ -1118,7 +1131,7 @@ code {
     }
 
     .landing-text{
-      font-size:19px;
+      font-size:17px;
       line-height:normal;
       text-align: center;
     }
@@ -1476,4 +1489,125 @@ code {
   .mobile-plus{
     height:40px;
   }
+
+
+  /*                  RECIPE               */
+
+.section-wrapper{
+  display:none;
 }
+
+.recipe-blue-block-main{
+  width:100vw;
+  height:100%;
+  grid-area: bbm;
+  background-color: #C9F5D4;
+  border-top-left-radius: 0px;
+  border-top-right-radius: 20px;
+  display: grid;
+  grid-template-columns: 
+  [col-start] 1fr 
+  [col-1] 0.5fr 
+  [col-2] 7fr 
+  [col-3] 7fr 
+  [col-4] 7fr 
+  [col-5] 7fr 
+  [col-6] 7fr 
+  [col-7] 0.5fr 
+  [col-8] 1fr 
+  [col-end];
+  grid-template-rows: 1.8fr 10fr 10fr 10fr 10fr 10fr 10fr;
+  grid-template-areas:
+      ". fbtn fbtn fbtn . . . . ."
+      "mw mw mw mw mw mw mw . ."
+      "mw mw mw mw mw mw mw . ."
+      "mw mw mw mw mw mw mw . ."
+      "mw mw mw mw mw mw mw . ."
+      "mw mw mw mw mw mw mw . ."
+      "mw mw mw mw mw mw mw . .";
+}
+
+.recipe-mobile-wrapper{
+  display:grid;
+  grid-area:mw;
+  grid-template-columns: 
+  [col-start] 1fr 
+  [col-1] 0.5fr 
+  [col-2] 7fr 
+  [col-3] 7fr 
+  [col-4] 7fr 
+  [col-5] 7fr 
+  [col-6] 7fr 
+  [col-7] 0.5fr 
+  [col-8] 1fr 
+  [col-end];
+  grid-template-rows: 10fr 10fr 10fr 10fr 10fr 10fr;
+  grid-template-areas:
+      "a a a a a a a a a"
+      "a a a a a a a a a"
+      "a a a a a a a a a"
+      "a a a a a a a a a"
+      "a a a a a a a a a"
+      "a a a a a a a a a";
+}
+  .mobile-recipe-back-arrow{
+    height:35px;
+  }
+  .rp-white-mobile{
+    display: flex;
+    flex-direction: column;
+    border-top-left-radius: 20px;
+    grid-area: w;
+    background-color: white;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    overflow: visible;
+  }
+
+  .mobile-green-recipe-button{
+    display:block;
+    width:60px;
+    height:70px;
+    position:relative;
+    top:0px;
+    left:3.7vw;
+    background-color:#77D18C;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .recipe-details{
+    display: grid;
+    width:90%;
+    grid-template-columns: [col-start] 1fr [col-end];
+    grid-template-rows: 1fr 20fr 1fr 20fr 1fr;
+    grid-template-areas:
+        "ingtitle"
+        "ing"
+        "institle"
+        "ins";
+
+    overflow:visible;
+    margin-left: 30px;
+    margin-top:40px;
+    }
+    .ingredients-list-wrapper{
+      margin-top:35px;
+    }
+    .ingredients-list{
+      font-size: 17px;
+      margin-bottom: 30px;
+    }
+    .recipe-display{
+      overflow:visible;
+    }
+    .instructions-title {
+      margin-top:0px;
+    }
+    .instructions-list{
+      font-size:17px;
+    }
+  }
