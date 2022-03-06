@@ -1003,7 +1003,7 @@ code {
   /*                          LANDING                          */
   .wrapper{
     display: grid;
-    height:100vh;
+    /* height:100vh; */
     grid-template-columns:
     [col-start] 2fr
     [col-2] 2fr
