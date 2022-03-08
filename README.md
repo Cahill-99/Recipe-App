@@ -1,5 +1,5 @@
 # Smart Chef
-https://cahill-99.github.io/Smart-Chef/
+https://cahill-99.github.io/Recipe-App/
 ## Overview
 
 A web app that lets users find recipes based on available ingredients, and filter with diet and time restrictions.
@@ -13,5 +13,6 @@ Allow users to easily find a recipe that suits their needs
 
 ## Technologies Used
   - React.JS
+  - CSS
   - Spoonacular recipe search API
   - Spoonacular ingredient autocomplete API
