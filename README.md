@@ -13,5 +13,6 @@ Allow users to easily find a recipe that suits their needs
 
 ## Technologies Used
   - React.JS
+  - CSS
   - Spoonacular recipe search API
   - Spoonacular ingredient autocomplete API
