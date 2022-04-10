@@ -5,6 +5,8 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  min-height:100vh;
+  min-height:-webkit-fill-available;
 }
 
 
@@ -1000,10 +1002,11 @@ code {
 @media screen and (max-width: 790px) {
 
 
+
   /*                          LANDING                          */
   .wrapper{
     display: grid;
-    /* height:100vh; */
+    height:100vh;
     grid-template-columns:
     [col-start] 2fr
     [col-2] 2fr
