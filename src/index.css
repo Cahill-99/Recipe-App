@@ -1493,6 +1493,10 @@ code {
     height:40px;
   }
 
+  .recipe-card{
+    max-width: 240px;
+  }
+
 
   /*                  RECIPE               */
 
