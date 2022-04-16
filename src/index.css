@@ -964,7 +964,7 @@ code {
 
 @media screen and (max-width: 1000px) {
   .recipe-display{
-    min-width:400px;
+    min-width:40vw;
   }
   .recipe-card{
     max-width:240px;
@@ -1087,6 +1087,10 @@ code {
     ". wb wb wb wb wb wb wb wb wb wb wb wb wb"
     ;
   
+  }
+
+  .logo{
+    height:35px;
   }
 
   .white-block {
@@ -1589,6 +1593,7 @@ code {
   .recipe-details{
     display: grid;
     width:90%;
+    max-height:150vh;
     grid-template-columns: [col-start] 1fr [col-end];
     grid-template-rows: 1fr 20fr 1fr 20fr 1fr;
     grid-template-areas:
@@ -1603,6 +1608,7 @@ code {
     }
     .ingredients-list-wrapper{
       margin-top:35px;
+      max-height:200vh;
     }
     .ingredients-list{
       font-size: 17px;
@@ -1610,9 +1616,19 @@ code {
     }
     .recipe-display{
       overflow:visible;
+      max-width:70vw;
+    }
+    .recipe-image{
+      max-width:70vw;
+    }
+    .recipe-card-title-bar{
+      max-width:70vw;
+    }
+    .recipe-card-icon-bar{
+      max-width:70vw;
     }
     .instructions-title {
-      margin-top:0px;
+      margin-top:45px;
     }
     .instructions-list{
       font-size:17px;
