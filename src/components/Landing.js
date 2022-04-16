@@ -9,7 +9,7 @@ function Landing() {
             <div className = "text-block">
                 <h2>Finding recipes made easy</h2>
                 <p className = "landing-text"> 
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna</p>
+                Select your ingredients, prep time, and diet restrictions to find recipes that fit your needs.</p>
                 <Link to= '/main' className= "start-link">
                 <button className = "startbtn">Get Started</button>
                 </Link>
